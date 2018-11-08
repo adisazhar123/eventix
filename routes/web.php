@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MainController@index');
+Route::get('/ticket', 'MainController@single_ticket');
+
+
+Route::get('/user/dashboard', 'UserController@index');
+
+
+Route::get('/admin/dashboard', 'AdminController@index');
