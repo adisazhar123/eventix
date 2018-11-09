@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 	public function index(){
+		// get events of user that has been approved by admin 
 		$events = Event::where('owner', 1)->where('approved', 1)->get();
 		return view('user.home', ['events' => $events]);
 	}
@@ -21,7 +22,7 @@ class UserController extends Controller
 	public function orderedTicketsPage(){
 		return view('user.tickets-ordered');
 	}
-
+// new event
 	public function storeEvent(Request $request){
 		try {
 			$event = Event::create([
@@ -34,7 +35,7 @@ class UserController extends Controller
 				'owner' => 1,
 				'price' => $request->price
 			]);
-
+			// store the pictures
 			$path = $request->file('event_pictures')->store('public/event_pictures');
 			EventPicture::create([
 				'location' => $path,

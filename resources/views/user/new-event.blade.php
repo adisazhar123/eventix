@@ -77,6 +77,8 @@
 
 @section('script')
 <script type="text/javascript">
+
+  // change border color of input field
   $("input, textarea").keyup(function(){
     if ($(this).val().trim() != "") {
       $(this).css('border-left', '2px solid  #03D61D');
@@ -85,12 +87,12 @@
 
     }
   });
-
+  // minimal date is today
   $('[type="date"]').prop('min', function(){
       return new Date().toJSON().split('T')[0];
   });
 
-
+  // attached images has to be png or jpg
   function validate_fileupload(fileName)
   {
     var allowed_extensions = new Array("jpg","png", "jpeg");
