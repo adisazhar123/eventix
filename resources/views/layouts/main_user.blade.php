@@ -21,7 +21,7 @@
     <body>
         <div class="navbar navbar-inverse bg-indigo">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{url('/')}}">
                   EvenTix
                 </a>
 

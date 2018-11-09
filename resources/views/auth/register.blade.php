@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
+@section('style')
+    <link rel="stylesheet" type="text/css" href="{{asset('styles/product_styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('styles/product_responsive.css')}}">
+@endsection
+
+@section('categories')
+@endsection
+
 @section('content')
-<div class="container">
+<div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -74,4 +82,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+    <script src="{{asset('js/product_custom.js')}}"></script>
 @endsection

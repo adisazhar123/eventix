@@ -26,8 +26,16 @@
                                 <div class="top_bar_content ml-auto">
                                     <div class="top_bar_user">
                                         <div class="user_icon"><img src="images/user.svg" alt=""></div>
-                                        <div><a href="#">Register</a></div>
-                                        <div><a href="#">Sign in</a></div>
+                                        @guest
+                                        <div><a href="{{ route('register') }}">Register</a></div>
+                                        <div><a href="{{ route('login') }}">Sign in</a></div>
+                                        @else
+                                        <div><a href="{{ url('user') }}">Dashboard</a></div>
+                                        <div><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> </div>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        @endguest
                                     </div>
                                 </div>
                             </div>

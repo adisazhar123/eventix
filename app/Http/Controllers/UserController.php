@@ -22,7 +22,7 @@ class UserController extends Controller
 	public function orderedTicketsPage(){
 		return view('user.tickets-ordered');
 	}
-// new event
+	// new event
 	public function storeEvent(Request $request){
 		try {
 			$event = Event::create([
