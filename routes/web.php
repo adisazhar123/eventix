@@ -14,8 +14,16 @@
 Route::get('/', 'MainController@index');
 Route::get('/ticket', 'MainController@single_ticket');
 
-
-Route::get('/user/dashboard', 'UserController@index');
+Route::prefix('user')->group(function(){
+  Route::get('/', 'UserController@index');
+  Route::get('/new/event', 'UserController@newEventPage');
+  Route::get('/ordered-tickets', 'UserController@orderedTicketsPage');
+  Route::post('events', 'UserController@storeEvent');
+});
 
 
 Route::get('/admin/dashboard', 'AdminController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

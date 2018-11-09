@@ -269,8 +269,8 @@
   color: #fff;
 }
 .bg-indigo {
-  background-color: #3F51B5;
-  border-color: #3F51B5;
+  background-color:  #551A8B;
+  border-color:  #551A8B;
   color: #fff;
 }
 .bg-indigo-300 {
@@ -721,7 +721,7 @@
   border-color: #4527A0;
 }
 .border-indigo {
-  border-color: #3F51B5;
+  border-color:  #551A8B;
 }
 .border-indigo-300 {
   border-color: #7986CB;
@@ -1015,7 +1015,7 @@
   border-top-color: #4527A0;
 }
 .border-top-indigo {
-  border-top-color: #3F51B5;
+  border-top-color:  #551A8B;
 }
 .border-top-indigo-300 {
   border-top-color: #7986CB;
@@ -1306,7 +1306,7 @@
   border-bottom-color: #4527A0;
 }
 .border-bottom-indigo {
-  border-bottom-color: #3F51B5;
+  border-bottom-color:  #551A8B;
 }
 .border-bottom-indigo-300 {
   border-bottom-color: #7986CB;
@@ -1597,7 +1597,7 @@
   border-left-color: #4527A0;
 }
 .border-left-indigo {
-  border-left-color: #3F51B5;
+  border-left-color:  #551A8B;
 }
 .border-left-indigo-300 {
   border-left-color: #7986CB;
@@ -1888,7 +1888,7 @@
   border-right-color: #4527A0;
 }
 .border-right-indigo {
-  border-right-color: #3F51B5;
+  border-right-color: #551A8B;
 }
 .border-right-indigo-300 {
   border-right-color: #7986CB;
@@ -2277,7 +2277,7 @@
 .text-indigo,
 .text-indigo:hover,
 .text-indigo:focus {
-  color: #3F51B5 !important;
+  color:  #551A8B !important;
 }
 .text-indigo-300,
 .text-indigo-300:hover,
