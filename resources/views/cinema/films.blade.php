@@ -13,10 +13,14 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="containers">
 	@foreach ($films as $film)
+	@php
+	$file=explode("/",$film->picture->location);
+	@endphp
+
 	<div class="movie-card">
-		<div class="movie-header manOfSteel">
+		<div class="movie-header" style="background: url({{ asset('storage/'.$file[1].'/'.$file[2]) }}); background-size: cover;">
 			<div class="header-icon-container">
 				<a href="#">
 					<i class="material-icons header-icon"></i>
@@ -26,7 +30,7 @@
 		<div class="movie-content">
 			<div class="movie-content-header">
 				<a href="#">
-					<h3 class="movie-title">{{$film->name}}</h3>
+					<h3 class="movie-title text-capitalize">{{$film->name}}</h3>
 				</a>
 				<div class="imax-logo"></div>
 			</div>
@@ -34,20 +38,20 @@
 				<div class="info-section">
 					<label>Genre</label>
 					<span>{{$film->genre}}</span>
-				</div><!--date,time-->
+				</div>
 				<div class="info-section">
 					<label>Director</label>
 					<span>{{$film->director}}</span>
-				</div><!--row-->
+				</div>
 				<div class="info-section">
 					<label>Duration</label>
 					<span>{{$film->duration}}</span>
-				</div><!--screen-->
+				</div>
 			</div>
-		</div><!--movie-content-->
-	</div><!--movie-card-->
+		</div>
+	</div>
 	@endforeach
-</div><!--container-->
+</div>
 @endsection
 
 @section('script')

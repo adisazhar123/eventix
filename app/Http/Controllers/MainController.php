@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\Film;
+use App\Cinema;
+use App\Schedule;
 
 class MainController extends Controller
 {
@@ -21,5 +24,10 @@ class MainController extends Controller
 		// TODO: query based on events, sports etc
 		$events = Event::where('approved', 1)->get();
 		return view('events', ['events' => $events]);
+	}
+
+	public function moviePage(){
+		$films = Film::orderBy('name')->get();
+        return view('movies', compact('films'));
 	}
 }

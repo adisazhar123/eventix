@@ -12,6 +12,6 @@ class FilmPicture extends Model
   protected $table = 'film_picture';
 
   public function film(){
-    return $this->belongsTo('App\Film');
+    return $this->belongsTo('App\Film','film_id');
   }
 }

@@ -10,5 +10,5 @@ class Cinema extends Model
   protected $fillable = [
       'id', 'name', 'price'
   ];
-  protected $table = 'films';
+  protected $table = 'cinemas';
 }

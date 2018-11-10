@@ -11,4 +11,8 @@ class Film extends Model
       'id', 'name', 'genre', 'duration', 'director'
   ];
   protected $table = 'films';
+
+  public function picture(){
+    return $this->hasOne('App\FilmPicture','film_id','id');
+  }
 }

@@ -53,12 +53,12 @@
                         <div class="sidebar-user-material">
                             <div class="category-content">
                                 <div class="sidebar-user-material-content">
-                                    <a href="#"><img src="{{asset('assets/images/placeholder.jpg')}}" class="img-circle img-responsive" alt=""></a>
+                                    <a href="#"><img src="https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/8a/0e/27/8a0e2749-7b89-d23a-54bd-985a3057ae85/AppIcon-1x_U007emarketing-85-220-1.png/600x600wa.png" class="img-circle img-responsive" alt=""></a>
                                     <h6>{{Auth::user()->name}}</h6>
                                 </div>
 
                                 <div class="sidebar-user-material-menu">
-                                    <a href="#user-nav" data-toggle="collapse"><span>My account</span> <i class="caret"></i></a>
+                                    <a href="#user-nav" data-toggle="collapse"><span>Account</span> <i class="caret"></i></a>
                                 </div>
                             </div>
 
@@ -141,7 +141,7 @@
         <script type="text/javascript" src="{{asset('assets/js/core/app.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/js/pages/form_input_groups.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/js/plugins/ui/ripple.min.js')}}"></script>
-
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/r-2.2.2/datatables.min.js"></script>
         <script type="text/javascript">
             function logOut(){
                 $(".logout-form").submit();

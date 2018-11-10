@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Film;
+use App\Cinema;
+use App\Schedule;
 use App\FilmPicture;
 
 class CinemaController extends Controller
 {
 	public function index(){
-		return view('cinema.dashboard');
+		$schedules = Schedule::orderBy('id_cinema')->get();
+		$cinemas = Cinema::select('id', 'name')->orderBy('name')->get();
+		$films = Film::select('id', 'name')->orderBy('name')->get();
+		return view('cinema.dashboard',compact('schedules','cinemas','films'));
 	}
 
 	public function newFilmPage(){
@@ -17,11 +22,12 @@ class CinemaController extends Controller
 	}
 
 	public function listCinemas(){
-		return view('cinema.cinemas');
+		$cinemas = Cinema::orderBy('name')->get();
+		return view('cinema.cinemas',compact('cinemas'));
 	}
 
 	public function listFilms(){
-		$films = Film::all();
+		$films = Film::orderBy('name')->get();
         return view('cinema.films', compact('films'));
 	}
 
@@ -45,5 +51,19 @@ class CinemaController extends Controller
 			return "server error";
 		}
 		return back()->with('success', 'Film created successfully!');
+	}
+
+	public function storeSchedule(Request $request){
+		try {
+			$film = Schedule::create([
+				'id_cinema' => $request->cinema_id,
+				'id_film' => $request->film_id,
+			]);
+
+		} catch (\Exception $e) {
+			return $e->getMessage();
+			return "server error";
+		}
+		return back()->with('success', 'Schedule added successfully!');
 	}
 }

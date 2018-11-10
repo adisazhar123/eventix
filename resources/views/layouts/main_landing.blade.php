@@ -53,7 +53,7 @@
                         <div class="row">
                             <div class="col-lg-2 col-sm-3 col-3 order-1">
                                 <div class="logo_container">
-                                    <div class="logo"><a href="#">Eventix</a></div>
+                                    <div class="logo"><a href="{{url('/')}}">Eventix</a></div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
