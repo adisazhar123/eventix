@@ -13,21 +13,21 @@ class FilmsTableSeeder extends Seeder
     {
        DB::table('films')->insert([
           'name' => 'bohemian rhapsody',
-          'genre' => 'Biography, Drama, Music',
+          'genre' => 'Biography',
           'duration' => '-',
           'director' => 'bryan singer',
       ]);
 
        DB::table('films')->insert([
           'name' => 'The nutcracker and the four realms',
-          'genre' => 'adventure, family, fantasy',
+          'genre' => 'adventure',
           'duration' => '-',
-          'director' => 'lasse hallstrom, joe johnston',
+          'director' => 'lasse hallstrom',
       ]);
 
        DB::table('films')->insert([
           'name' => 'a star is born',
-          'genre' => 'Drama, Music, Musical',
+          'genre' => 'Drama',
           'duration' => '-',
           'director' => 'bradley cooper',
       ]);
@@ -41,21 +41,21 @@ class FilmsTableSeeder extends Seeder
 
        DB::table('films')->insert([
           'name' => 'doraemon: great adventure',
-          'genre' => 'animation, adventure, comedy',
+          'genre' => 'animation',
           'duration' => '1j 40m',
           'director' => 'bryan singer',
       ]);
 
        DB::table('films')->insert([
           'name' => 'a man called ahok',
-          'genre' => 'drama, biopic, family',
+          'genre' => 'drama',
           'duration' => '-',
           'director' => 'putrama tuta',
       ]);
 
        DB::table('films')->insert([
           'name' => 'mara',
-          'genre' => 'crime, horror thriller',
+          'genre' => 'crime',
           'duration' => '1j 38m',
           'director' => 'clive tonge',
       ]);
@@ -69,20 +69,20 @@ class FilmsTableSeeder extends Seeder
 
        DB::table('films')->insert([
           'name' => 'overlord',
-          'genre' => 'action,horror,mystery',
+          'genre' => 'action',
           'duration' => '-',
           'director' => 'julius avery',
       ]);
 
        DB::table('films')->insert([
           'name' => 'hunter killer',
-          'genre' => 'action, thriller',
+          'genre' => 'action',
           'duration' => '-',
           'director' => 'Denovan marsh',
       ]);
 
        DB::table('films')->insert([
-          'name' => 'hanum & rangga (FAITH & THE CITY)',
+          'name' => 'hanum & rangga',
           'genre' => 'drama',
           'duration' => '-',
           'director' => 'benny setiawan',

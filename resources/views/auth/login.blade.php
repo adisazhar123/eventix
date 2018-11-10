@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', "Login to Eventix")
 @section('style')
     <link rel="stylesheet" type="text/css" href="{{asset('styles/product_styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('styles/product_responsive.css')}}">

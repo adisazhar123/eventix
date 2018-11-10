@@ -1,4 +1,4 @@
-@extends('layouts.main_admin')
+@extends('layouts.main_cinema')
 
 @section('title', "")
 
@@ -7,7 +7,6 @@
 @endsection
 
 @section('content')
-
 @endsection
 
 @section('script')

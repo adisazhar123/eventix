@@ -6,7 +6,7 @@
         <meta name="description" content="OneTech shop project">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <title>Eventix | @yield('title')</title>
         <link rel="stylesheet" type="text/css" href="{{asset('styles/bootstrap4/bootstrap.min.css')}}">
         <link href="{{asset('plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
@@ -30,7 +30,13 @@
                                         <div><a href="{{ route('register') }}">Register</a></div>
                                         <div><a href="{{ route('login') }}">Sign in</a></div>
                                         @else
-                                        <div><a href="{{ url('user') }}">Dashboard</a></div>
+                                            @if(Auth::user()->role==3)
+                                                <div><a href="{{ url('user') }}">Dashboard</a></div>
+                                            @elseif(Auth::user()->role==1)
+                                                <div><a href="{{ url('admin') }}">Dashboard</a></div>
+                                            @elseif(Auth::user()->role==2)
+                                                <div><a href="{{ url('xxi') }}">Dashboard</a></div>
+                                            @endif
                                         <div><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> </div>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                 @csrf

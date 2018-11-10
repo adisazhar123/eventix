@@ -1,5 +1,7 @@
 @extends('layouts.main_user')
 
+@section('title', "")
+
 @section('style')
 
 @endsection

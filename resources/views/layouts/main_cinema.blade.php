@@ -7,13 +7,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Eventix | @yield('title')</title>
-        <link href="{{('https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900')}}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/css/icons/icomoon/styles.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/css/core.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/css/components.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets/css/colors.css')}}" rel="stylesheet" type="text/css">
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/r-2.2.2/datatables.min.css"/>
         @yield('style')
 
@@ -24,19 +24,15 @@
                 <a class="navbar-brand" href="{{url('/')}}">
                   EvenTix
                 </a>
-
                 <ul class="nav navbar-nav visible-xs-block">
                     <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
                     <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
                 </ul>
             </div>
-
             <div class="navbar-collapse collapse" id="navbar-mobile">
                 <ul class="nav navbar-nav">
                     <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
-
                 </ul>
-
                 <div class="navbar-right">
                     <p class="navbar-text">Hello, {{Auth::user()->name}} !</p>
                     <p class="navbar-text"><span class="label bg-success-400">Online</span></p>
@@ -82,9 +78,9 @@
 
                                     <!-- Main -->
                                     <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
-                                    <li id="nav-home"><a href="{{url('/user')}}"><i class="icon-home4"></i> <span>Home</span></a></li>
-                                    <li id="nav-home"><a href="{{url('/user/ordered-tickets')}}"><i class="fa fa-ticket" aria-hidden="true"></i> <span>Ordered Tickets</span></a></li>
-
+                                    <li id="nav-home"><a href="{{url('/xxi')}}"><i class="icon-home4"></i> <span>Home</span></a></li>
+                                    <li id="nav-home"><a href="{{url('/xxi/film')}}"><i class="fas fa-film"></i> <span>Now Playing Films</span></a></li>
+                                    <li id="nav-home"><a href="{{url('/xxi/cinema')}}"><i class="icon-home4"></i> <span>Cinemas</span></a></li>
                                     <!-- /main -->
 
                                     <!-- Forms -->
@@ -117,7 +113,7 @@
 
                     <!-- Content area -->
                     <div class="content">
-                      @yield('content')
+                        @yield('content')
 
                         <!-- Footer -->
                         <div class="footer text-muted">
@@ -129,7 +125,6 @@
                     <!-- /content area -->
 
                 </div>
-
 
         <!-- Core JS files -->
         <script type="text/javascript" src="{{asset('assets/js/plugins/loaders/pace.min.js')}}"></script>
@@ -146,7 +141,6 @@
         <script type="text/javascript" src="{{asset('assets/js/core/app.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/js/pages/form_input_groups.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/js/plugins/ui/ripple.min.js')}}"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/r-2.2.2/datatables.min.js"></script>
 
         <script type="text/javascript">
             function logOut(){
