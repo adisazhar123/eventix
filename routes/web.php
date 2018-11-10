@@ -13,6 +13,8 @@
 
 Route::get('/', 'MainController@index');
 Route::get('/ticket', 'MainController@single_ticket');
+Route::get('/events', 'MainController@eventPage');
+Route::get('/events/{id}', 'MainController@single_ticket');
 
 
 // Route::group(['middleware' => ['user_only']], function(){

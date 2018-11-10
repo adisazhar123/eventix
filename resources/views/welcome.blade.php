@@ -53,6 +53,7 @@
 
         <!-- Char. Item -->
         <div class="col-lg-3 col-md-6 char_col" style="cursor: pointer;">
+          <a href="{{url('events')}}">
           <div class="char_item d-flex flex-row align-items-center justify-content-start">
             <div class="char_icon"><img src="{{('images/categories_events.png')}}" alt=""></div>
             <div class="char_content">
@@ -60,6 +61,7 @@
               <div class="char_subtitle">Seminars, Talk Show ..</div>
             </div>
           </div>
+          </a>
         </div>
 
         <!-- Char. Item -->
@@ -87,7 +89,7 @@
             <div class="deals_slider_container">
               <!-- Deals Slider -->
               <div class="owl-carousel owl-theme deals_slider">
-                
+
                 <!-- Deals Item -->
                 <div class="owl-item deals_item">
                   <div class="deals_image"><img src="{{asset('images/deals.png')}}" alt=""></div>
@@ -140,7 +142,7 @@
               <div class="deals_slider_next deals_slider_nav"><i class="fas fa-chevron-right ml-auto"></i></div>
             </div>
           </div>
-          
+
           <!-- Featured -->
           <div class="featured">
             <div class="tabbed_container">
@@ -401,7 +403,7 @@
                     <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     <div class="button banner_2_button"><a href="#">Explore</a></div>
                   </div>
-                  
+
                 </div>
                 <div class="col-lg-8 col-md-6 fill_height">
                   <div class="banner_2_image_container">
@@ -409,7 +411,7 @@
                   </div>
                 </div>
               </div>
-            </div>      
+            </div>
           </div>
         </div>
 
@@ -426,7 +428,7 @@
                     <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     <div class="button banner_2_button"><a href="#">Explore</a></div>
                   </div>
-                  
+
                 </div>
                 <div class="col-lg-8 col-md-6 fill_height">
                   <div class="banner_2_image_container">
@@ -434,7 +436,7 @@
                   </div>
                 </div>
               </div>
-            </div>      
+            </div>
           </div>
         </div>
 
@@ -451,7 +453,7 @@
                     <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
                     <div class="button banner_2_button"><a href="#">Explore</a></div>
                   </div>
-                  
+
                 </div>
                 <div class="col-lg-8 col-md-6 fill_height">
                   <div class="banner_2_image_container">
@@ -459,7 +461,7 @@
                   </div>
                 </div>
               </div>
-            </div>      
+            </div>
           </div>
         </div>
 
@@ -684,11 +686,11 @@
               </div>
 
             </div>
-                
+
           </div>
         </div>
       </div>
-    </div>    
+    </div>
   </div>
 
   <!-- Trends -->

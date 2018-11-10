@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class MainController extends Controller
 {
@@ -10,7 +11,15 @@ class MainController extends Controller
 		return view('welcome');
 	}
 
-	public function single_ticket(){
-		return view('ticket');
+	public function single_ticket($id){
+		$event = Event::find($id);
+		return view('ticket', ['event' => $event]);
+	}
+
+	public function eventPage(){
+		// get approved events and still in date range
+		// TODO: query based on events, sports etc
+		$events = Event::where('approved', 1)->get();
+		return view('events', ['events' => $events]);
 	}
 }

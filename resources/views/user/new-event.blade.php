@@ -66,7 +66,7 @@
               <p class="help-block">The tickets available for your event.</p>
             </div>
             <div class="form-group">
-              <input type="file" name="event_pictures" multiple="multiple" class="form-control" accept="image/*" onchange="validate_fileupload(this.value);">
+              <input type="file" name="event_pictures[]" multiple class="form-control" accept="image/*" onchange="validate_fileupload(this.value); validate_max_attached(this)">
               <p class="help-block">Attach pictures to add buzz to your event.</p>
             </div>
             <button type="submit" class="btn btn-success">Save</button>
@@ -110,6 +110,14 @@
     alert("Please attach a jpg or png image.")
     $("input[name='event_pictures']").val('');
     return false;
+  }
+
+  function validate_max_attached(files){
+    if (files.files.length > 3) {
+      alert("Maximum image attached is 3.")
+      $("input[name='event_pictures']").val('');
+      return false;
+    }
   }
 </script>
 @endsection
