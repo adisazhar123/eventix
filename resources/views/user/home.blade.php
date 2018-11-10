@@ -36,6 +36,7 @@
             <thead>
               <th>Event name</th>
               <th>Date</th>
+              <th>Status</th>
               <th>Action</th>
             </thead>
             <tbody>
@@ -43,8 +44,17 @@
                 <tr>
                   <td>{{$e->name}}</td>
                   <td>{{$e->date1}}</td>
+                  @if ($e->approved == 1)
+                    <td>Approved</td>
+                  @else
+                    <td>Pending</td>
+                  @endif
                   <td>
-                    {{-- <button type="button" name="button" class="btn btn-danger">Delete</button> --}}
+                    @if ($e->approved == 1)
+                      <button type="button" name="button" class="btn btn-danger" disabled>Delete</button>
+                    @else
+                      <button type="button" name="button" class="btn btn-danger">Delete</button>
+                    @endif
                     <button type="button" name="button" class="btn btn-info">View</button>
                   </td>
                 </tr>

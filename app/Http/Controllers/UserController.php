@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 	public function index(){
-		// get events of user that has been approved by admin 
-		$events = Event::where('owner', 1)->where('approved', 1)->get();
+		// get events of user that has been approved by admin
+		$events = Event::where('owner', 1)->get();
 		return view('user.home', ['events' => $events]);
 	}
 
@@ -36,12 +36,13 @@ class UserController extends Controller
 				'price' => $request->price
 			]);
 			// store the pictures
-			$path = $request->file('event_pictures')->store('public/event_pictures');
-			EventPicture::create([
-				'location' => $path,
-				'event_id' => $event->id
-			]);
-
+			foreach ($request->event_pictures as $pics) {
+				$path = $pics->store('public/event_pictures');
+				EventPicture::create([
+					'location' => str_replace('public/', '', $path),
+					'event_id' => $event->id
+				]);
+			}
 
 		} catch (\Exception $e) {
 			return $e->getMessage();
