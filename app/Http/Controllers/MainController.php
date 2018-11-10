@@ -18,6 +18,7 @@ class MainController extends Controller
 
 	public function eventPage(){
 		// get approved events and still in date range
+		// TODO: query based on events, sports etc
 		$events = Event::where('approved', 1)->get();
 		return view('events', ['events' => $events]);
 	}
