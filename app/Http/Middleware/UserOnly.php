@@ -19,6 +19,9 @@ class UserOnly
         if (Auth::user() && Auth::user()->role == 3) {
             return $next($request);
         }
-        return redirect('/');
+        if (Auth::user() && Auth::user()->role == 2) {
+            return redirect('/xxi');
+        }
+        return redirect('/login');
     }
 }

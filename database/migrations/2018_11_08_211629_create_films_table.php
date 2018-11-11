@@ -17,6 +17,7 @@ class CreateFilmsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('genre');
+            $table->text('description');
             $table->string('duration');
             $table->string('director');
             $table->timestamps();

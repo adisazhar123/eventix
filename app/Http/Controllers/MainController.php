@@ -12,7 +12,8 @@ use App\User;
 class MainController extends Controller
 {
 	public function index(){
-		return view('welcome');
+		$films = Film::take(5)->get();
+        return view('welcome', compact('films'));
 	}
 
 	public function single_ticket($id){
@@ -34,5 +35,11 @@ class MainController extends Controller
 	public function moviePage(){
 		$films = Film::orderBy('name')->get();
         return view('movies', compact('films'));
+	}
+
+	public function moviePageSingle($id){
+		$film = Film::find($id);
+		$cinemas = Schedule::where('id_film',$id)->get();
+        return view('movie', compact('film','cinemas'));
 	}
 }

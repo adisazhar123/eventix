@@ -16,16 +16,18 @@ Route::get('/', 'MainController@index');
 Route::get('/events', 'MainController@eventPage');
 Route::get('/events/{id}', 'MainController@single_ticket');
 Route::get('/movies', 'MainController@moviePage');
+Route::get('/movies/{id}/{name}', 'MainController@moviePageSingle');
 
 
 Route::group(['middleware' => ['user_only']], function(){
 	Route::prefix('user')->group(function(){
-	  Route::get('/', 'UserController@index');
-	  Route::get('/new/event', 'UserController@newEventPage');
-	  Route::get('/ordered-tickets', 'UserController@orderedTicketsPage');
-	  Route::post('events', 'UserController@storeEvent');
+	  	Route::get('/', 'UserController@index');
+	  	Route::get('/new/event', 'UserController@newEventPage');
+	  	Route::get('/ordered-tickets', 'UserController@orderedTicketsPage');
+	  	Route::post('events', 'UserController@storeEvent');
 		Route::get('events', 'UserController@getEvents');
 		Route::delete('events/{id}', 'UserController@deleteEvent');
+	  	Route::post('book/pick_seat', 'UserController@bookMovie');
 	});
 });
 

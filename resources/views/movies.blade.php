@@ -67,19 +67,21 @@
 								@foreach ($films as $film)
 								@php
 								$file=explode("/",$film->picture->location);
+								$name = str_replace(' ', '', $film->name);
+								$name = preg_replace("/[^A-Za-z0-9 ]/", '', $name);
 								@endphp
 
 								<div class="movie-card">
 									<div class="movie-header" style="background: url({{ asset('storage/'.$file[1].'/'.$file[2]) }}); background-size: cover;">
 										<div class="header-icon-container">
-											<a href="#">
+											<a href="{{url('movies/'.$film->id.'/'.$name) }}">
 												<i class="material-icons header-icon">&nbsp;<i class="fas fa-play"></i></i>
 											</a>
 										</div>
 									</div><!--movie-header-->
 									<div class="movie-content">
 										<div class="movie-content-header">
-											<a href="#">
+											<a href="{{url('movies/'.$film->id.'/'.$name) }}">
 												<h3 class="movie-title text-capitalize">{{$film->name}}</h3>
 											</a>
 											<div class="imax-logo"></div>

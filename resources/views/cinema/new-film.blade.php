@@ -60,6 +60,11 @@
               </select>
             </div>
             <div class="form-group">
+              <label for="event-name">Description</label>
+              <textarea class="form-control" required name="film_description"></textarea>
+              <p class="help-block">The description?</p>
+            </div>
+            <div class="form-group">
               <label for="event-name">Director</label>
               <input type="text" class="form-control" required name="film_director" value="">
               <p class="help-block">The director?</p>
