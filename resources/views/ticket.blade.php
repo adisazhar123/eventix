@@ -3,6 +3,12 @@
 @section('style')
 	<link rel="stylesheet" type="text/css" href="{{asset('styles/product_styles.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('styles/product_responsive.css')}}">
+
+	<style media="screen">
+		.manage-event .btn:hover{
+			cursor: pointer;
+		}
+	</style>
 @endsection
 
 @section('categories')
@@ -22,10 +28,30 @@
 @endsection
 
 @section('content')
-	<!-- Single Product -->
+
 
 	<div class="single_product">
+		{{-- show message if it's user's event --}}
+		@if (Auth::user() && $event->owner == Auth::user()->id)
 		<div class="container">
+				<div class="alert alert-info">
+					This event is posted by you.
+				</div>
+		</div>
+		@endif
+
+		<div class="container">
+			{{-- Admin can approve/ decline event if it is still pending --}}
+			<div class="card mb-3 manage-event">
+				@if (Auth::user()->role == 1 && $event->approved == 0)
+					<div class="card-body">
+						<p>Manage event status: </p>
+						<button type="button" class="btn btn-success" name="button">Approve</button>
+						<button type="button" class="btn btn-danger" name="button">Decline</button>
+					</div>
+				@endif
+			</div>
+
 			<div class="row">
 
 				<!-- Images -->
@@ -54,17 +80,11 @@
 						<div class="order_info d-flex flex-row">
 							<form action="#">
 								<div class="clearfix" style="z-index: 1000;">
-
-									<!-- Product Quantity -->
-									<div class="product_quantity clearfix">
-										<span>Quantity: </span>
-										{{-- <input id="quantity_input" type="text" pattern="[0-9]*" value="1" max="{{$event->quota}}">
-										<div class="quantity_buttons">
-											<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fas fa-chevron-up"></i></div>
-											<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fas fa-chevron-down"></i></div>
-										</div> --}}
+									<div class="form-group">
+										<label for="">Quantity</label>
+										<input type="number" class="form-control" name="" value="" id="ticket_quantity" min="1" max="{{$event->quota}}" step="1">
 									</div>
-									<input type="number" class="form-control" name="" value="" id="ticket_quantity" min="1" max="{{$event->quota}}" step="1">
+
 
 									<!-- Product Color -->
 									{{-- <ul class="product_color">
@@ -86,6 +106,7 @@
 								<div class="product_price">$2000</div>
 								<div class="button_container">
 									<button type="button" class="button cart_button">Add to Cart</button>
+
 									{{-- <div class="product_fav"><i class="fas fa-heart"></i></div> --}}
 								</div>
 
