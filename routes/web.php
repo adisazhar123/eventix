@@ -18,14 +18,16 @@ Route::get('/events/{id}', 'MainController@single_ticket');
 Route::get('/movies', 'MainController@moviePage');
 
 
-// Route::group(['middleware' => ['user_only']], function(){
+Route::group(['middleware' => ['user_only']], function(){
 	Route::prefix('user')->group(function(){
 	  Route::get('/', 'UserController@index');
 	  Route::get('/new/event', 'UserController@newEventPage');
 	  Route::get('/ordered-tickets', 'UserController@orderedTicketsPage');
 	  Route::post('events', 'UserController@storeEvent');
+		Route::get('events', 'UserController@getEvents');
+		Route::delete('events/{id}', 'UserController@deleteEvent');
 	});
-// });
+});
 
 // Route::group(['middleware' => ['admin_only']], function(){
 	Route::prefix('admin')->group(function(){

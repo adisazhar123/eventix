@@ -17,6 +17,12 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/r-2.2.2/datatables.min.css"/>
         @yield('style')
 
+        <style media="screen">
+          .form-control{
+            color: black !important;
+          }
+        </style>
+
     </head>
     <body>
         <div class="navbar navbar-inverse bg-indigo">
@@ -68,7 +74,7 @@
 
                             <div class="navigation-wrapper collapse" id="user-nav">
                                 <ul class="navigation">
-                                    <li><a href="#"><i class="icon-switch2"></i> <span>Logout</span></a></li>
+                                    <li onclick="logOut()"><a href="#"><i class="icon-switch2"></i> <span>Logout</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -130,7 +136,9 @@
 
                 </div>
 
-
+                <form class="logout-form" action="{{url('logout')}}" method="post">
+                  {{ csrf_field() }}
+                  </form>
         <!-- Core JS files -->
         <script type="text/javascript" src="{{asset('assets/js/plugins/loaders/pace.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('assets/js/core/libraries/jquery.min.js')}}"></script>

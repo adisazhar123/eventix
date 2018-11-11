@@ -20,11 +20,15 @@
     text-decoration: none;
     color: black;
   }
+
+  table .btn{
+    margin-right: 5px;
+  }
 </style>
 @endsection
 
 @section('header')
-  <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">My Tickets</span> - These are the tickets for my events!
+  <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">My Tickets</span> - These are my events!
     <button id="new-ticket" type="button" class="btn btn-primary" name="button" style="float: right">New ticket</button>
   </h4>
 @endsection
@@ -42,25 +46,6 @@
               <th>Action</th>
             </thead>
             <tbody>
-              @foreach ($events as $e)
-                <tr>
-                  <td>{{$e->name}}</td>
-                  <td>{{$e->date1}}</td>
-                  @if ($e->approved == 1)
-                    <td>Approved</td>
-                  @else
-                    <td>Pending</td>
-                  @endif
-                  <td>
-                    @if ($e->approved == 1)
-                      <button type="button" name="button" class="btn btn-danger" disabled>Delete</button>
-                    @else
-                      <button type="button" name="button" class="btn btn-danger">Delete</button>
-                    @endif
-                    <button type="button" name="button" class="btn btn-info">View</button>
-                  </td>
-                </tr>
-              @endforeach
             </tbody>
           </table>
         </div>
@@ -132,8 +117,58 @@
       $("#event-type").modal('show');
     });
 
-    $(document).ready( function () {
-      $('table').DataTable();
+      const event_table = $('table').DataTable({
+        ajax: '{{url('user/events')}}',
+        columns: [
+        { data: "name" },
+        { data: "date1" },
+        { data: "approved" ,
+          render: function(data, type, row){
+            if (data == 1) {
+              return "Approved";
+            }else if (data == 0){
+              return "Pending";
+            }else{
+              return "Declined";
+            }
+          }
+
+        },
+        { data: "approved",
+            render: function(data, type, row){
+                if (data == 1) {
+                  return '<button type="button" name="button" class="btn btn-danger" disabled>Delete</button>'+
+                  '<a type="button" href="{{url('events')}}/'+row.id+'" name="button" target="_blank" class="btn btn-info">View</a>';
+                }else{
+                  return '<button type="button" event-id='+row.id+' name="button" class="btn btn-danger delete">Delete</button>' +
+                  '<a type="button" href="{{url('events')}}/'+row.id+'" target="_blank" name="button" class="btn btn-info">View</a>';
+                }
+            }
+        }
+      ]
+      });
+
+    // add csrf token to headers in ajax call
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    // event listner on delete button
+    $(document).on('click', '.delete', function(){
+      let event_id = $(this).attr('event-id');
+      $.ajax({
+        url: '{{url('user/events')}}/' + event_id,
+        method: "DELETE",
+        success: function(){
+          event_table.ajax.reload( null, false );
+          alert("Event deleted!");
+        },
+        error: function(){
+          alert("Error");
+        }
+      });
     });
 
 

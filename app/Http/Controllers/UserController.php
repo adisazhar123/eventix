@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\EventPicture;
 use Storage;
-
+use Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
 	public function index(){
-		// get events of user that has been approved by admin
+		return view('user.home');
+	}
+
+	// get events of user that has been approved/ pending by admin
+	public function getEvents(){
 		$events = Event::where('owner', 1)->get();
-		return view('user.home', ['events' => $events]);
+		return response()->json(['data' => $events]);
 	}
 
 	public function newEventPage(Request $request){
@@ -32,7 +36,7 @@ class UserController extends Controller
 				'date1' => $request->start_date,
 				'date2'  => $request->end_date,
 				'quota' =>  $request->quota,
-				'owner' => 1,
+				'owner' => Auth::user()->id,
 				'price' => $request->price
 			]);
 			// store the pictures
@@ -49,5 +53,21 @@ class UserController extends Controller
 			return "server error";
 		}
 		return back()->with('success', 'Event created successfully!');
+	}
+	// delete event that is still pending
+	public function deleteEvent($id){
+		try {
+			$event = Event::find($id);
+			// check if event is owned by user
+			if ($event->owner == Auth::user()->id) {
+				$event->delete();
+			}else{ //not owned by user
+				return response()->json(['message' => 'unauthorised'], 401);
+			}
+		} catch (\Exception $e) {
+			return response()->json(['message' => 'server error'], 500);
+		}
+		return response()->json(['message' => 'ok'], 200);
+
 	}
 }

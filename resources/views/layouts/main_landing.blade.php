@@ -12,6 +12,11 @@
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/animate.css')}}">
+        <style media="screen">
+          .form-control{
+            color: black !important;
+          }
+        </style>
 
         @yield('style')
 
@@ -46,7 +51,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>      
+                    </div>
                 </div>
                 <div class="header_main">
                     <div class="container">
@@ -83,13 +88,13 @@
                             </div>
                         </div>
                     </div>
-                </div>      
+                </div>
                 <!-- Main Navigation -->
                 <nav class="main_nav">
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                
+
                                 <div class="main_nav_content d-flex flex-row">
                                     <!-- Main Nav Menu -->
                                     @yield('categories')

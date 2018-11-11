@@ -17,6 +17,11 @@
         sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/r-2.2.2/datatables.min.css"/>
         @yield('style')
+        <style media="screen">
+          .form-control{
+            color: black !important;
+          }
+        </style>
 
     </head>
     <body>
@@ -69,13 +74,15 @@
 
                             <div class="navigation-wrapper collapse" id="user-nav">
                                 <ul class="navigation">
-                                    <li><a href="#"><i class="icon-switch2"></i> <span>Logout</span></a></li>
+                                    <li onclick="logOut()"><a href="#"><i class="icon-switch2"></i> <span>Logout</span></a></li>
                                 </ul>
                             </div>
                         </div>
                         <!-- /user menu -->
 
-
+                        <form class="logout-form" action="{{url('logout')}}" method="post">
+                          {{ csrf_field() }}
+                          </form>
                         <!-- Main navigation -->
                         <div class="sidebar-category sidebar-category-visible">
                             <div class="category-content no-padding">
