@@ -33,7 +33,7 @@ class MainController extends Controller
 	}
 
 	public function moviePage(){
-		$films = Film::orderBy('name')->get();
+		$films = Film::orderBy('name')->paginate(10);
         return view('movies', compact('films'));
 	}
 
@@ -41,5 +41,10 @@ class MainController extends Controller
 		$film = Film::find($id);
 		$cinemas = Schedule::where('id_film',$id)->get();
         return view('movie', compact('film','cinemas'));
+	}
+
+	public function categoryMovie($category){
+		$films = Film::orderBy('name')->where('genre',$category)->paginate(10);
+        return view('movies', compact('films'));
 	}
 }

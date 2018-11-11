@@ -1,5 +1,7 @@
 @extends('layouts.main_landing')
 
+@section('title',$film->name)
+
 @section('style')
 	<link rel="stylesheet" type="text/css" href="{{asset('styles/product_styles.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('styles/product_responsive.css')}}">

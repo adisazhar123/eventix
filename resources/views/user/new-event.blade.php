@@ -1,6 +1,6 @@
 @extends('layouts.main_user')
 
-@section('title', "")
+@section('title', "Create new event")
 
 @section('style')
 

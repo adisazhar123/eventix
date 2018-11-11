@@ -1,5 +1,7 @@
 @extends('layouts.main_landing')
 
+@section('title','Movies list')
+
 @section('style')
 	<link rel="stylesheet" type="text/css" href="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('styles/shop_styles.css')}}">
@@ -19,27 +21,31 @@
 					<!-- Shop Sidebar -->
 					<div class="shop_sidebar">
 						<div class="sidebar_section">
-							<div class="sidebar_title">Categories</div>
+							<div class="sidebar_title">Genre</div>
 							<ul class="sidebar_categories">
-								<li><a href="#">Computers & Laptops</a></li>
-								<li><a href="#">Cameras & Photos</a></li>
-								<li><a href="#">Hardware</a></li>
-								<li><a href="#">Smartphones & Tablets</a></li>
-								<li><a href="#">TV & Audio</a></li>
-								<li><a href="#">Gadgets</a></li>
-								<li><a href="#">Car Electronics</a></li>
-								<li><a href="#">Video Games & Consoles</a></li>
-								<li><a href="#">Accessories</a></li>
+								<li><a href="{{url('search/movies/Action')}}">Action</a></li>
+								<li><a href="{{url('search/movies/Adventure')}}">Adventure</a></li>
+								<li><a href="{{url('search/movies/Animation')}}">Animation</a></li>
+								<li><a href="{{url('search/movies/Biography')}}">Biography</a></li>
+								<li><a href="{{url('search/movies/Comedy')}}">Comedy</a></li>
+								<li><a href="{{url('search/movies/Crime')}}">Crime</a></li>
+								<li><a href="{{url('search/movies/Documentary')}}">Documentary</a></li>
+								<li><a href="{{url('search/movies/Drama')}}">Drama</a></li>
+								<li><a href="{{url('search/movies/Family')}}">Family</a></li>
+								<li><a href="{{url('search/movies/Fantasy')}}">Fantasy</a></li>
+								<li><a href="{{url('search/movies/History')}}">History</a></li>
+								<li><a href="{{url('search/movies/Horror')}}">Horror</a></li>
+								<li><a href="{{url('search/movies/Music')}}">Music</a></li>
+								<li><a href="{{url('search/movies/Musical')}}">Musical</a></li>
+								<li><a href="{{url('search/movies/Mystery')}}">Mystery</a></li>
+								<li><a href="{{url('search/movies/Romance')}}">Romance</a></li>
+								<li><a href="{{url('search/movies/Short')}}">Short</a></li>
+								<li><a href="{{url('search/movies/Sport')}}">Sport</a></li>
+								<li><a href="{{url('search/movies/Superhero')}}">Superhero</a></li>
+								<li><a href="{{url('search/movies/Thriller')}}">Thriller</a></li>
+								<li><a href="{{url('search/movies/War')}}">War</a></li>
+								<li><a href="{{url('search/movies/Western')}}">Western</a></li>
 							</ul>
-						</div>
-						<div class="sidebar_section filter_by_section">
-							<div class="sidebar_title">Filter By</div>
-							<div class="sidebar_subtitle">Price</div>
-							<div class="filter_price">
-								<div id="slider-range" class="slider_range"></div>
-								<p>Range: </p>
-								<p><input type="text" id="amount" class="amount" readonly style="border:0; font-weight:bold;"></p>
-							</div>
 						</div>
 					</div>
 

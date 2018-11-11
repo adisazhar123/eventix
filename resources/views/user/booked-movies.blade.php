@@ -1,13 +1,13 @@
 @extends('layouts.main_user')
 
-@section('title', "Ordered tickets")
+@section('title', "Booked movies")
 
 @section('style')
 
 @endsection
 
 @section('header')
-<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">My Tickets</span> - These are the tickets I have ordered!</h4>
+<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">My Tickets</span> - These are the movies tickets I have booked!</h4>
 @endsection
 
 @section('content')
@@ -17,20 +17,20 @@
         <div class="panel-body">
           <table class="table table-striped table-hover table-responsive">
             <thead>
-              <th>Event name</th>
-              <th>Date</th>
-              <th>Action</th>
+              <th>Film</th>
+              <th>Cinema</th>
+              <th>Time</th>
+              <th>Total Price</th>
             </thead>
             <tbody>
-              @for ($i = 0; $i < 5; $i++)
+              @foreach($tickets as $ticket)
                 <tr>
-                  <td>Ludruk</td>
-                  <td>09-10-2018</td>
-                  <td>
-                    <button type="button" name="button" class="btn btn-info">View</button>
-                  </td>
+                  <td class="text-capitalize">{{$ticket->film->name}}</td>
+                  <td class="text-capitalize">{{$ticket->cinema->name}}</td>
+                  <td>{{date('Y M d', strtotime($ticket->created_at))}}</td>
+                  <td>{{number_format($ticket->total, 2)}}</td>
                 </tr>
-              @endfor
+              @endforeach
             </tbody>
           </table>
         </div>

@@ -5,6 +5,7 @@ use App\Event;
 use App\Film;
 use App\EventPicture;
 use App\Schedule;
+use App\OrderMovie;
 use Storage;
 use Auth;
 use Illuminate\Http\Request;
@@ -28,6 +29,12 @@ class UserController extends Controller
 	public function orderedTicketsPage(){
 		return view('user.tickets-ordered');
 	}
+
+	public function bookedMoviesPage(){
+		$tickets = OrderMovie::where('user_id',Auth::user()->id)->get();
+		return view('user.booked-movies', compact('tickets'));
+	}
+	
 	// new event
 	public function storeEvent(Request $request){
 		try {
@@ -81,4 +88,37 @@ class UserController extends Controller
 		$time = $request->jam;
 		return view('user.pick_seat', compact('seat','time','film'));
 	}
+
+	public function bookMovieSubmit(Request $request){
+		$seat = Schedule::where('id_cinema',$request->cinema_id)->where('id_film',$request->film_id)->select($request->waktu, 'id')->first();
+
+      	try {
+	        $dataSeat = json_decode($request->dataSeat);
+	        $res=$seat[$request->waktu];
+	        for ($i=0; $i < count($dataSeat) ; $i++) {
+	        	if ($res[$i]=="0" && $dataSeat[$i]=="1") {
+	        		$res[$i]="1";
+	        	}
+			}
+			$dataSeat=$res;
+			$jam=$request->waktu;
+			$schedule= Schedule::find($seat['id']);
+			$schedule->$jam = $dataSeat;
+			$schedule->save();
+
+	        OrderMovie::create([
+	          'film_id' => $request->film_id,
+	          'cinema_id' => $request->cinema_id,
+	          'user_id' => $request->user_id,
+	          'waktu' => $jam,
+	          'seat' => 1,
+	          'total' => $request->price,
+	        ]);
+
+      	}catch (\Exception $e) {
+        	return response()->json($e->getMessage(), 500);
+      	}
+      return response()->json(['message'=>'success'], 201);
+    }
+
 }

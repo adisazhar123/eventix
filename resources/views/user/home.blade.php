@@ -1,6 +1,6 @@
 @extends('layouts.main_user')
 
-@section('title', "")
+@section('title', "Dashboard")
 
 @section('style')
 <style media="screen">

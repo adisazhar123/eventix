@@ -26,5 +26,11 @@ class AccountsSeeder extends Seeder
             'role' => '1'
           ]);
         }
+          User::create([
+            'name' => 'XXI',
+            'email' => 'XXI@gmail.com',
+            'password' => bcrypt('xxi123'),
+            'role' => '2'
+          ]);
     }
 }

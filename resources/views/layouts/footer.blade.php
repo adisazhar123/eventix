@@ -62,8 +62,8 @@
           <div class="footer_column">
             <div class="footer_title">Find Tickets Now</div>
             <ul class="footer_list">
-              <li><a href="#">Cinemas</a></li>
-              <li><a href="#">Events</a></li>
+              <li><a href="{{url('movies')}}">Cinemas</a></li>
+              <li><a href="{{url('events')}}">Events</a></li>
               <li><a href="#">Sports</a></li>
             </ul>
           </div>

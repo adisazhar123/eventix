@@ -1,5 +1,7 @@
 @extends('layouts.main_landing')
 
+@section('title','The best place to get tickets!')
+
 @section('style')
   <link rel="stylesheet" type="text/css" href="{{asset('plugins/slick-1.8.0/slick.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
@@ -704,7 +706,7 @@
         <!-- Trends Content -->
         <div class="col-lg-3">
           <div class="trends_container">
-            <h2 class="trends_title">Hot film&nbsp;<i style="color: #E25822" class="fas fa-fire"></i></h2>
+            <h2 class="trends_title">On air&nbsp;<i style="color: #E25822" class="fas fa-fire"></i></h2>
             <div class="trends_text"><p>Your must watch films !</p></div>
             <div class="trends_slider_nav">
               <div class="trends_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
@@ -730,7 +732,7 @@
                     <div class="trends_category"><a href="#" class="text-capitalize">By :&nbsp;{{$film->director}}</a></div>
                     <div class="trends_info clearfix">
 {{--                       <div class="trends_name"><a href="#">{{$film->name}}</a></div> --}}
-                      <div class="trends_price"><a href=""><i class="fab fa-youtube"></i> Get ticket</a></div>
+                      <div class="trends_price"><a href="{{url('movies')}}"><i class="fab fa-youtube"></i> Get ticket</a></div>
                     </div>
                   </div>
                   <ul class="trends_marks">

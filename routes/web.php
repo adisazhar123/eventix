@@ -17,6 +17,7 @@ Route::get('/events', 'MainController@eventPage');
 Route::get('/events/{id}', 'MainController@single_ticket');
 Route::get('/movies', 'MainController@moviePage');
 Route::get('/movies/{id}/{name}', 'MainController@moviePageSingle');
+Route::get('/search/movies/{category}', 'MainController@categoryMovie');
 
 
 Route::group(['middleware' => ['user_only']], function(){
@@ -24,10 +25,12 @@ Route::group(['middleware' => ['user_only']], function(){
 	  	Route::get('/', 'UserController@index');
 	  	Route::get('/new/event', 'UserController@newEventPage');
 	  	Route::get('/ordered-tickets', 'UserController@orderedTicketsPage');
+	  	Route::get('/booked-movies', 'UserController@bookedMoviesPage');
 	  	Route::post('events', 'UserController@storeEvent');
 		Route::get('events', 'UserController@getEvents');
 		Route::delete('events/{id}', 'UserController@deleteEvent');
 	  	Route::post('book/pick_seat', 'UserController@bookMovie');
+	  	Route::post('book/pick_seat/submit', 'UserController@bookMovieSubmit')->name('book.movie');
 	});
 });
 

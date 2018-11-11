@@ -43,14 +43,13 @@
                 <option value="Drama">Drama</option>
                 <option value="Family">Family</option>
                 <option value="Fantasy">Fantasy</option>
-                <option value="Film">Film Noir</option>
                 <option value="History">History</option>
                 <option value="Horror">Horror</option>
                 <option value="Music">Music</option>
                 <option value="Musical">Musical</option>
                 <option value="Mystery">Mystery</option>
                 <option value="Romance">Romance</option>
-                <option value="Sci">Sci-Fi</option>
+                <option value="SciFi">SciFi</option>
                 <option value="Short">Short</option>
                 <option value="Sport">Sport</option>
                 <option value="Superhero">Superhero</option>
