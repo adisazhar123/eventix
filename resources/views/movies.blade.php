@@ -67,12 +67,15 @@
 								@foreach ($films as $film)
 								@php
 								$file=explode("/",$film->picture->location);
+								$url = '~(?:(https?)://([^\s<]+)|(www\.[^\s<]+?\.[^\s<]+))(?<![\.,:])~i';
+								$name = str_replace(' ', '_', $film->name);
+								$name = preg_replace($url, '<a href="$1">$1</a>', $name);
 								@endphp
 
 								<div class="movie-card">
 									<div class="movie-header" style="background: url({{ asset('storage/'.$file[1].'/'.$file[2]) }}); background-size: cover;">
 										<div class="header-icon-container">
-											<a href="#">
+											<a href="{{url('movies/'.$film->id.'/'.$name) }}">
 												<i class="material-icons header-icon">&nbsp;<i class="fas fa-play"></i></i>
 											</a>
 										</div>

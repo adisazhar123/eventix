@@ -11,7 +11,8 @@ use App\Schedule;
 class MainController extends Controller
 {
 	public function index(){
-		return view('welcome');
+		$films = Film::take(5)->get();
+        return view('welcome', compact('films'));
 	}
 
 	public function single_ticket($id){
