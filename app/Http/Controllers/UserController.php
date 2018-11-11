@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Event;
+use App\Film;
 use App\EventPicture;
+use App\Schedule;
 use Storage;
 use Auth;
 use Illuminate\Http\Request;
@@ -69,5 +71,12 @@ class UserController extends Controller
 		}
 		return response()->json(['message' => 'ok'], 200);
 
+	}
+
+	public function bookMovie(Request $request){
+		$seat = Schedule::where('id_cinema',$request->cinema_id)->where('id_film',$request->film_id)->select('id', 'id_cinema', 'id_film', $request->jam)->get();
+		$film = Film::find($request->film_id);
+		$time = $request->jam;
+		return view('user.pick_seat', compact('seat','time','film'));
 	}
 }

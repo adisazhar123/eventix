@@ -38,6 +38,7 @@ class CinemaController extends Controller
 				'genre' => $request->film_genre,
 				'director' => $request->film_director,
 				'duration' => $request->film_duration,
+				'description' => $request->film_description,
 			]);
 
 			$path = $request->file('film_pictures')->store('public/film_pictures');

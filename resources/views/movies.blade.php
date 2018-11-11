@@ -67,9 +67,8 @@
 								@foreach ($films as $film)
 								@php
 								$file=explode("/",$film->picture->location);
-								$url = '~(?:(https?)://([^\s<]+)|(www\.[^\s<]+?\.[^\s<]+))(?<![\.,:])~i';
-								$name = str_replace(' ', '_', $film->name);
-								$name = preg_replace($url, '<a href="$1">$1</a>', $name);
+								$name = str_replace(' ', '', $film->name);
+								$name = preg_replace("/[^A-Za-z0-9 ]/", '', $name);
 								@endphp
 
 								<div class="movie-card">
@@ -82,7 +81,7 @@
 									</div><!--movie-header-->
 									<div class="movie-content">
 										<div class="movie-content-header">
-											<a href="#">
+											<a href="{{url('movies/'.$film->id.'/'.$name) }}">
 												<h3 class="movie-title text-capitalize">{{$film->name}}</h3>
 											</a>
 											<div class="imax-logo"></div>

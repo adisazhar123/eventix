@@ -82,17 +82,12 @@ a:hover {
   vertical-align: middle;
   margin: 0 auto;
   color: #ffffff;
-  font-size: 40px;
+  font-size: 50px;
   text-shadow: 0px 0px 20px #6abcea, 0px 5px 20px #6ABCEA;
   opacity: .55;
 }
 
 .header-icon:hover {
-  background: rgba(0, 0, 0, 0.15);
-  font-size: 30px;
-  text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   opacity: 1;
 }
 

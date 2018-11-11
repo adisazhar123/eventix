@@ -31,4 +31,10 @@ class MainController extends Controller
 		$films = Film::orderBy('name')->get();
         return view('movies', compact('films'));
 	}
+
+	public function moviePageSingle($id){
+		$film = Film::find($id);
+		$cinemas = Schedule::where('id_film',$id)->get();
+        return view('movie', compact('film','cinemas'));
+	}
 }
