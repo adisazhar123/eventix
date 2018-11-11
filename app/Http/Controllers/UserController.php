@@ -15,7 +15,7 @@ class UserController extends Controller
 
 	// get events of user that has been approved/ pending by admin
 	public function getEvents(){
-		$events = Event::where('owner', 1)->get();
+		$events = Event::where('owner', Auth::user()->id)->get();
 		return response()->json(['data' => $events]);
 	}
 
@@ -37,7 +37,9 @@ class UserController extends Controller
 				'date2'  => $request->end_date,
 				'quota' =>  $request->quota,
 				'owner' => Auth::user()->id,
-				'price' => $request->price
+				'price' => $request->price,
+				'city' => ucfirst($request->city),
+				'sport_type' => $request->sport_type
 			]);
 			// store the pictures
 			foreach ($request->event_pictures as $pics) {

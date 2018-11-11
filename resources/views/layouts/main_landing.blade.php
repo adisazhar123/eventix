@@ -30,7 +30,7 @@
                             <div class="col d-flex flex-row">
                                 <div class="top_bar_content ml-auto">
                                     <div class="top_bar_user">
-                                        <div class="user_icon"><img src="images/user.svg" alt=""></div>
+                                        <div class="user_icon"><img src="{{asset('images/user.svg')}}" alt=""></div>
                                         @guest
                                         <div><a href="{{ route('register') }}">Register</a></div>
                                         <div><a href="{{ route('login') }}">Sign in</a></div>
@@ -76,11 +76,10 @@
                                                             <li><a class="clc" href="#">Cinemas</a></li>
                                                             <li><a class="clc" href="#">Events</a></li>
                                                             <li><a class="clc" href="#">Sports</a></li>
-                                                            <li><a class="clc" href="#">Others</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""></button>
+                                                <button type="submit" class="header_search_button trans_300" value="Submit"><img src="{{asset('images/search.png')}}" alt=""></button>
                                             </form>
                                         </div>
                                     </div>
@@ -100,9 +99,7 @@
                                     @yield('categories')
                                     <div class="main_nav_menu ml-auto">
                                         <ul class="standard_dropdown main_nav_dropdown">
-                                            <li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="#">Hot Promo<i class="fas fa-chevron-down"></i></a></li>
-                                            <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
+                                            <li><a href="{{url('/')}}">Home<i class="fas fa-chevron-down"></i></a></li>
                                         </ul>
                                     </div>
 

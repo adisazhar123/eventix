@@ -18,6 +18,8 @@ class CreateEventTable extends Migration
             $table->text("name");
             $table->text('description');
             $table->string("type");
+            $table->string('sport_type')->nullable();
+            $table->string('city');
             $table->date("date1");
             $table->date("date2");
             $table->integer('quota');

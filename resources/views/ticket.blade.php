@@ -43,7 +43,7 @@
 		<div class="container">
 			{{-- Admin can approve/ decline event if it is still pending --}}
 			<div class="card mb-3 manage-event">
-				@if (Auth::user()->role == 1 && $event->approved == 0)
+				@if (Auth::user() && Auth::user()->role == 1 && $event->approved == 0)
 					<div class="card-body">
 						<p>Manage event status: </p>
 						<button type="button" class="btn btn-success" name="button">Approve</button>
@@ -71,43 +71,35 @@
 				<!-- Description -->
 				<div class="col-lg-5 order-3">
 					<div class="product_description">
-						<div class="product_category">{{$event->type}}</div>
+						<div class="product_category">{{$event->type}}
+							@if ($event->type == "Sport")
+								| {{$event->sport_type}}
+							@endif
+						</div>
 						<div class="product_name">{{$event->name}}</div>
-						<div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
 						<div class="product_text"><p>
 							{{$event->description}}
-						</p></div>
+						</p>
+						<p>Location: {{$event->city}}</p>
+						<p>
+							<strong>Posted by: {{$posted_by->name}}</strong>
+						</p>
+					</div>
 						<div class="order_info d-flex flex-row">
 							<form action="#">
 								<div class="clearfix" style="z-index: 1000;">
 									<div class="form-group">
 										<label for="">Quantity</label>
-										<input type="number" class="form-control" name="" value="" id="ticket_quantity" min="1" max="{{$event->quota}}" step="1">
+										<input type="number" class="form-control" name="" value="1" id="ticket_quantity" min="1" max="{{$event->quota}}" step="1">
 									</div>
-
-
-									<!-- Product Color -->
-									{{-- <ul class="product_color">
-										<li>
-											<span>Color: </span>
-											<div class="color_mark_container"><div id="selected_color" class="color_mark"></div></div>
-											<div class="color_dropdown_button"><i class="fas fa-chevron-down"></i></div>
-
-											<ul class="color_list">
-												<li><div class="color_mark" style="background: #999999;"></div></li>
-												<li><div class="color_mark" style="background: #b19c83;"></div></li>
-												<li><div class="color_mark" style="background: #000000;"></div></li>
-											</ul>
-										</li>
-									</ul> --}}
 
 								</div>
 
-								<div class="product_price">$2000</div>
+								<div class="product_price">
+									Rp {{number_format($event->price,2,',','.')}}</div>
 								<div class="button_container">
-									<button type="button" class="button cart_button">Add to Cart</button>
+									<button type="button" class="button cart_button">Order Now</button>
 
-									{{-- <div class="product_fav"><i class="fas fa-heart"></i></div> --}}
 								</div>
 
 							</form>
@@ -242,7 +234,17 @@
 	<script src="{{asset('js/product_custom.js')}}"></script>
 	<script type="text/javascript">
 		$(".cart_button").click(function(){
-			alert("o")
+			if (!'{{Auth::user()}}') {
+				alert("Please login first!");
+			}
+			const quantity = $("#ticket_quantity").val();
+			// const
+			$.ajax({
+				url: '{{url('order/events')}}',
+				data: {}
+			})
+
+
 		});
 	</script>
 @endsection

@@ -23,7 +23,7 @@
               </div>
           @endif
 
-          <form action="{{url('/user/events')}}" method="POST"  enctype="multipart/form-data">
+          <form action="{{url('/user/events')}}" method="POST"  enctype="multipart/form-data" id="new_event_form">
             {{ csrf_field() }}
             <div class="form-group">
               <label for="event-name">Event name</label>
@@ -45,6 +45,11 @@
                   <option value="Sport">Sport</option>
               </select>
             </div>
+            <div class="form-group" style="display: none" id="sport_type_field">
+              <label for="event-name">Sport type</label>
+              <input type="text" class="form-control" name="sport_type" value="">
+              <p class="help-block">e.g. Football</p>
+            </div>
             <div class="form-group">
               <label for="event-name">Start date</label>
               <input class="form-control input-date" type="date" name="start_date" required>
@@ -61,12 +66,17 @@
               <p class="help-block">The price for one ticket.</p>
             </div>
             <div class="form-group">
+              <label for="event-name">Location</label>
+              <input type="text" class="form-control" required name="city" value="">
+              <p class="help-block">Which city is your event located in?</p>
+            </div>
+            <div class="form-group">
               <label for="event-name">Quota</label>
               <input class="form-control" type="number" min="1" step="1" required name="quota">
               <p class="help-block">The tickets available for your event.</p>
             </div>
             <div class="form-group">
-              <input type="file" name="event_pictures[]" multiple class="form-control" accept="image/*" onchange="validate_fileupload(this.value); validate_max_attached(this)">
+              <input type="file" required name="event_pictures[]" multiple class="form-control" accept="image/*" onchange="validate_fileupload(this.value); validate_max_attached(this)">
               <p class="help-block">Attach pictures to add buzz to your event.</p>
             </div>
             <button type="submit" class="btn btn-success">Save</button>
@@ -80,6 +90,7 @@
 @section('script')
 <script type="text/javascript">
 
+$(document).ready(function(){
   // change border color of input field
   $("input, textarea").keyup(function(){
     if ($(this).val().trim() != "") {
@@ -119,5 +130,29 @@
       return false;
     }
   }
+
+  $("#new_event_form").submit(function(){
+    const date1 = $("input[name='start_date']").val();
+    const date2 = $("input[name='end_date']").val();
+
+    if (date1 > date2) {
+      alert("Start date must be before end date!");
+      return false;
+    }
+
+  });
+
+  $("select").change(function(){
+    if ($(this).val() == "Sport") {
+      $("#sport_type_field").css('display', 'block');
+      $("#sport_type_field").prop('required', true);
+    }else{
+      $("#sport_type_field").css('display', 'none');
+      $("input[name='sport_type']").removeAttr('required');
+    }
+  });
+});
+
+
 </script>
 @endsection
