@@ -46,8 +46,8 @@
 				@if (Auth::user() && Auth::user()->role == 1 && $event->approved == 0)
 					<div class="card-body">
 						<p>Manage event status: </p>
-						<button type="button" class="btn btn-success" name="button">Approve</button>
-						<button type="button" class="btn btn-danger" name="button">Decline</button>
+						<button type="button" class="btn btn-success approve" event-id="{{$event->id}}" name="button">Approve</button>
+						<button type="button" class="btn btn-danger decline" event-id="{{$event->id}}" name="button">Decline</button>
 					</div>
 				@endif
 			</div>
@@ -259,8 +259,36 @@
 					alert("Error");
 				}
 			})
+		});
 
+		$(document).on('click', '.approve', function(){
+			const id = $(this).attr('event-id');
+			$.ajax({
+				url: '{{url('admin/approve/events')}}/' + id,
+				method: "PUT",
+				success: function(){
+					alert("Event approved!");
+					window.location = '{{url('events')}}/' + id;
+				},
+				error: function(){
+					alert("Error");
+				}
+			});
+		});
 
+		$(document).on('click', '.decline', function(){
+			const id = $(this).attr('event-id');
+			$.ajax({
+				url: '{{url('admin/decline/events')}}/' + id,
+				method: "PUT",
+				success: function(){
+					alert("Event declined!");
+					window.location = '{{url('events')}}/' + id;
+				},
+				error: function(){
+					alert("Error");
+				}
+			});
 		});
 	</script>
 @endsection

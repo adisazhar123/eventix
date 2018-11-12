@@ -35,7 +35,7 @@
                     {{$t->created_at}}
                   </td>
                   <td>
-                    <a href="{{url('tickets', $t->id)}}" name="button" class="btn btn-info">View</a>
+                    <a href="{{url('user/tickets', $t->id)}}" name="button" class="btn btn-info">View</a>
                   </td>
                 </tr>
               @endforeach
