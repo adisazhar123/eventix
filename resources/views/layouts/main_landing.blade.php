@@ -24,7 +24,7 @@
     <body>
         <div class="super_container">
             <header class="header">
-                <div class="top_bar">
+                <div class="">
                     <div class="container">
                         <div class="row">
                             <div class="col d-flex flex-row">
