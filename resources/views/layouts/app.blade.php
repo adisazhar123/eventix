@@ -9,9 +9,9 @@
         <title>Eventix | @yield('title')</title>
         <link rel="stylesheet" type="text/css" href="{{asset('styles/bootstrap4/bootstrap.min.css')}}">
         <link href="{{asset('plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
+        {{-- <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/animate.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/animate.css')}}"> --}}
 
         @yield('style')
 
@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>      
+                    </div>
                 </div>
             </header>
 
@@ -59,7 +59,7 @@
         <script src="{{asset('plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
         <script src="{{asset('plugins/greensock/animation.gsap.min.js')}}"></script>
         <script src="{{asset('plugins/greensock/ScrollToPlugin.min.js')}}"></script>
-        <script src="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
+        {{-- <script src="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script> --}}
         <script src="{{asset('plugins/easing/easing.js')}}"></script>
 
         <script type="text/javascript">
