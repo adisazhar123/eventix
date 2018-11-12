@@ -69,7 +69,7 @@
 
                             <div class="navigation-wrapper collapse" id="user-nav">
                                 <ul class="navigation">
-                                    <li><a href="#"><i class="icon-switch2"></i> <span>Logout</span></a></li>
+                                    <li onclick="logOut()"><a href="#"><i class="icon-switch2"></i> <span>Logout</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -130,6 +130,10 @@
                     <!-- /content area -->
 
                 </div>
+
+                <form class="logout-form" action="{{url('logout')}}" method="post">
+                  {{ csrf_field() }}
+                  </form>
 
         <!-- Core JS files -->
         <script type="text/javascript" src="{{asset('assets/js/plugins/loaders/pace.min.js')}}"></script>
