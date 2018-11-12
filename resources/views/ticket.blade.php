@@ -18,9 +18,9 @@
 			<div class="cat_menu_text">categories</div>
 		</div>
 		<ul class="cat_menu">
-			<li><a href="#">Cinemas <i class="fas fa-chevron-right"></i></a></li>
-			<li><a href="#">Events<i class="fas fa-chevron-right"></i></a></li>
-			<li><a href="#">Sport<i class="fas fa-chevron-right"></i></a></li>
+			<li><a href="{{url('movies')}}">Cinemas <i class="fas fa-chevron-right"></i></a></li>
+			<li><a href="{{url('events')}}">Events<i class="fas fa-chevron-right"></i></a></li>
+			<li><a href="{{url('sports')}}">Sport<i class="fas fa-chevron-right"></i></a></li>
 		</ul>
 	</div>
 @endsection
@@ -113,6 +113,7 @@
 
 @section('script')
 	<script src="{{asset('js/product_custom.js')}}"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script type="text/javascript">
 		// add csrf token to headers in ajax call
 		$.ajaxSetup({
@@ -123,7 +124,11 @@
 
 		$(".cart_button").click(function(){
 			if (!'{{Auth::user()}}') {
-				alert("Please login first!");
+		        swal("Please Login first",{
+					closeOnClickOutside: false,
+	           	}).then(function() {
+						window.location = '{{url("login")}}';
+				});
 			}
 
 			const quantity = $("#ticket_quantity").val();
@@ -134,7 +139,11 @@
 				data: {quantity, event_id},
 				method: "POST",
 				success: function(){
-					alert("Successfully ordered ticket/s!");
+		              	swal("Successfully ordered ticket/s",{
+							closeOnClickOutside: false,
+		           		}).then(function() {
+						window.location = '{{url("user/ordered-tickets")}}';
+					});
 				},
 				error: function(){
 					alert("Error");

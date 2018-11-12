@@ -101,47 +101,23 @@
             <div class="deals_slider_container">
               <!-- Deals Slider -->
               <div class="owl-carousel owl-theme deals_slider">
-
                 <!-- Deals Item -->
                 <div class="owl-item deals_item">
-                  <div class="deals_image"><img src="{{asset('images/deals.png')}}" alt=""></div>
+                  <div class="deals_image"><img src="{{asset('storage') ."/". $sports[0]->pictures[0]->location}}" alt=""></div>
                   <div class="deals_content">
                     <div class="deals_info_line d-flex flex-row justify-content-start">
-                      <div class="deals_item_category"><a href="#">Headphones</a></div>
-                      <div class="deals_item_price_a ml-auto">$300</div>
+                      <div class="deals_item_category text-capitalize">{{$sports[0]->type}}</div>
+                      <div class="deals_item_price_a ml-auto">{{number_format($sports[0]->price,0,',','.')}}</div>
                     </div>
                     <div class="deals_info_line d-flex flex-row justify-content-start">
-                      <div class="deals_item_name">Beoplay H7</div>
-                      <div class="deals_item_price ml-auto">$225</div>
+                      <div class="deals_item_name">{{$sports[0]->name}}</div>
+                      <div class="deals_item_price ml-auto">{{number_format($sports[0]->price*0.75,0,',','.')}}</div>
                     </div>
                     <div class="available">
                       <div class="available_line d-flex flex-row justify-content-start">
-                        <div class="available_title">Available: <span>6</span></div>
-                        <div class="sold_title ml-auto">Already sold: <span>28</span></div>
+                        <div class="available_title">Quota: <span>{{$sports[0]->quota}}</span></div>
                       </div>
                       <div class="available_bar"><span style="width:17%"></span></div>
-                    </div>
-                    <div class="deals_timer d-flex flex-row align-items-center justify-content-start">
-                      <div class="deals_timer_title_container">
-                        <div class="deals_timer_title">Hurry Up</div>
-                        <div class="deals_timer_subtitle">Offer ends in:</div>
-                      </div>
-                      <div class="deals_timer_content ml-auto">
-                        <div class="deals_timer_box clearfix" data-target-time="">
-                          <div class="deals_timer_unit">
-                            <div id="deals_timer1_hr" class="deals_timer_hr"></div>
-                            <span>hours</span>
-                          </div>
-                          <div class="deals_timer_unit">
-                            <div id="deals_timer1_min" class="deals_timer_min"></div>
-                            <span>mins</span>
-                          </div>
-                          <div class="deals_timer_unit">
-                            <div id="deals_timer1_sec" class="deals_timer_sec"></div>
-                            <span>secs</span>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -160,7 +136,7 @@
             <div class="tabbed_container">
               <div class="tabs">
                 <ul class="clearfix">
-                  <li class="active">This Week</li>
+                  <li class="active">Sport events</li>
                 </ul>
                 <div class="tabs_line"><span></span></div>
               </div>
@@ -168,32 +144,26 @@
               <!-- Product Panel -->
               <div class="product_panel panel active">
                 <div class="featured_slider slider">
-                  @for($i = 0 ; $i < 4 ; $i++ )
+                  @foreach($sports as $s)
                   <!-- Slider Item -->
                   <div class="featured_slider_item">
                     <div class="border_active"></div>
                     <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                      <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('images/featured_1.png')}}" alt=""></div>
+                      <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('storage') ."/". $s->pictures[0]->location}}" alt=""></div>
                       <div class="product_content">
-                        <div class="product_price discount">$225<span>$300</span></div>
-                        <div class="product_name"><div><a href="product.html">Huawei MediaPad...</a></div></div>
+                        <div class="product_price">Rp. {{number_format($s->price,2,',','.')}}</div>
+                        <div class="product_name"><div>{{$s->name}}</div></div>
                         <div class="product_extras">
-                          <div class="product_color">
-                            <input type="radio" checked name="product_color" style="background:#b19c83">
-                            <input type="radio" name="product_color" style="background:#000000">
-                            <input type="radio" name="product_color" style="background:#999999">
-                          </div>
-                          <button class="product_cart_button">Add to Cart</button>
+                          <a class="btn product_cart_button" role="button" style="color: white;" href="{{url('events') . "/" . $s->id}}">View</a>
                         </div>
                       </div>
                       <div class="product_fav"><i class="fas fa-heart"></i></div>
                       <ul class="product_marks">
-                        <li class="product_mark product_discount">-25%</li>
-                        <li class="product_mark product_new">new</li>
+                        <li class="product_mark product_discount"><i style="" class="fas fa-fire"></i></li>
                       </ul>
                     </div>
                   </div>
-                  @endfor
+                  @endforeach
                 </div>
                 <div class="featured_slider_dots_cover"></div>
               </div>
@@ -224,61 +194,10 @@
               <div class="row fill_height">
                 <div class="col-lg-4 col-md-6 fill_height">
                   <div class="banner_2_content">
-                    <div class="banner_2_category">Laptops</div>
-                    <div class="banner_2_title">MacBook Air 13</div>
-                    <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div>
-                    <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                    <div class="button banner_2_button"><a href="#">Explore</a></div>
-                  </div>
-
-                </div>
-                <div class="col-lg-8 col-md-6 fill_height">
-                  <div class="banner_2_image_container">
-                    <div class="banner_2_image"><img src="{{asset('images/banner_2_product.png')}}" alt=""></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Banner 2 Slider Item -->
-        <div class="owl-item">
-          <div class="banner_2_item">
-            <div class="container fill_height">
-              <div class="row fill_height">
-                <div class="col-lg-4 col-md-6 fill_height">
-                  <div class="banner_2_content">
-                    <div class="banner_2_category">Laptops</div>
-                    <div class="banner_2_title">MacBook Air 13</div>
-                    <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div>
-                    <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                    <div class="button banner_2_button"><a href="#">Explore</a></div>
-                  </div>
-
-                </div>
-                <div class="col-lg-8 col-md-6 fill_height">
-                  <div class="banner_2_image_container">
-                    <div class="banner_2_image"><img src="{{asset('images/banner_2_product.png')}}" alt=""></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Banner 2 Slider Item -->
-        <div class="owl-item">
-          <div class="banner_2_item">
-            <div class="container fill_height">
-              <div class="row fill_height">
-                <div class="col-lg-4 col-md-6 fill_height">
-                  <div class="banner_2_content">
-                    <div class="banner_2_category">Laptops</div>
-                    <div class="banner_2_title">MacBook Air 13</div>
-                    <div class="banner_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</div>
-                    <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                    <div class="button banner_2_button"><a href="#">Explore</a></div>
+                    <div class="banner_2_category">Thriller, Drama, Adventure</div>
+                    <div class="banner_2_title">CINEMA XXI</div>
+                    <div class="banner_2_text">Watch your favorite movies and get ticket now!</div>
+                    <div class="button banner_2_button"><a href="{{url('movies')}}">Explore</a></div>
                   </div>
 
                 </div>
@@ -304,7 +223,7 @@
         <div class="col">
           <div class="tabbed_container">
             <div class="tabs clearfix tabs-right">
-              <div class="new_arrivals_title">Hot New Tickets</div>
+              <div class="new_arrivals_title">Hot New Events</div>
               <ul class="clearfix">
                 <li class="active">Events</li>
               </ul>
@@ -316,22 +235,19 @@
                 <!-- Product Panel -->
                 <div class="product_panel panel active">
                   <div class="arrivals_slider slider">
-                  @for($i = 0 ; $i < 6 ; $i++ )
+                  @foreach($events as $e)
                     <!-- Slider Item -->
                     <div class="arrivals_slider_item">
                       <div class="border_active"></div>
                       <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('images/new_7.jpg')}}" alt=""></div>
+                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                          <img src="{{asset('storage') ."/". $e->pictures[0]->location}}" alt="">
+                        </div>
                         <div class="product_content">
-                          <div class="product_price">$379</div>
-                          <div class="product_name"><div><a href="product.html">Huawei MediaPad...</a></div></div>
+                          <div class="product_price">Rp. {{number_format($e->price,2,',','.')}}</div>
+                          <div class="product_name"><div>{{$e->name}}</div></div>
                           <div class="product_extras">
-                            <div class="product_color">
-                              <input type="radio" checked name="product_color" style="background:#b19c83">
-                              <input type="radio" name="product_color" style="background:#000000">
-                              <input type="radio" name="product_color" style="background:#999999">
-                            </div>
-                            <button class="product_cart_button">Add to Cart</button>
+                            <a class="btn product_cart_button" role="button" style="color: white;" href="{{url('events') . "/" . $e->id}}">View</a>
                           </div>
                         </div>
                         <div class="product_fav"><i class="fas fa-heart"></i></div>
@@ -341,92 +257,23 @@
                         </ul>
                       </div>
                     </div>
-                  @endfor()
+                  @endforeach
                   </div>
                   <div class="arrivals_slider_dots_cover"></div>
                 </div>
-
-                <!-- Product Panel -->
-                <div class="product_panel panel">
-                  <div class="arrivals_slider slider">
-                  @for($i = 0 ; $i < 6 ; $i++ )
-                    <!-- Slider Item -->
-                    <div class="arrivals_slider_item">
-                      <div class="border_active"></div>
-                      <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('images/new_7.jpg')}}" alt=""></div>
-                        <div class="product_content">
-                          <div class="product_price">$379</div>
-                          <div class="product_name"><div><a href="product.html">Huawei MediaPad...</a></div></div>
-                          <div class="product_extras">
-                            <div class="product_color">
-                              <input type="radio" checked name="product_color" style="background:#b19c83">
-                              <input type="radio" name="product_color" style="background:#000000">
-                              <input type="radio" name="product_color" style="background:#999999">
-                            </div>
-                            <button class="product_cart_button">Add to Cart</button>
-                          </div>
-                        </div>
-                        <div class="product_fav"><i class="fas fa-heart"></i></div>
-                        <ul class="product_marks">
-                          <li class="product_mark product_discount"></li>
-                          <li class="product_mark product_new">new</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                  @endfor()
-                  </div>
-                  <div class="arrivals_slider_dots_cover"></div>
-                </div>
-
-                <!-- Product Panel -->
-                <div class="product_panel panel">
-                  <div class="arrivals_slider slider">
-                  @for($i = 0 ; $i < 6 ; $i++ )
-                    <!-- Slider Item -->
-                    <div class="arrivals_slider_item">
-                      <div class="border_active"></div>
-                      <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('images/new_7.jpg')}}" alt=""></div>
-                        <div class="product_content">
-                          <div class="product_price">$379</div>
-                          <div class="product_name"><div><a href="product.html">Huawei MediaPad...</a></div></div>
-                          <div class="product_extras">
-                            <div class="product_color">
-                              <input type="radio" checked name="product_color" style="background:#b19c83">
-                              <input type="radio" name="product_color" style="background:#000000">
-                              <input type="radio" name="product_color" style="background:#999999">
-                            </div>
-                            <button class="product_cart_button">Add to Cart</button>
-                          </div>
-                        </div>
-                        <div class="product_fav"><i class="fas fa-heart"></i></div>
-                        <ul class="product_marks">
-                          <li class="product_mark product_discount"></li>
-                          <li class="product_mark product_new">new</li>
-                        </ul>
-                      </div>
-                    </div>
-                  @endfor()
-                  </div>
-                  <div class="arrivals_slider_dots_cover"></div>
-                </div>
-
               </div>
 
               <div class="col-lg-3">
                 <div class="arrivals_single clearfix">
                   <div class="d-flex flex-column align-items-center justify-content-center">
-                    <div class="arrivals_single_image"><img src="{{asset('images/new_single.png')}}" alt=""></div>
+                    <div class="arrivals_single_image"><img src="{{asset('storage') ."/". $events[0]->pictures[0]->location}}" alt=""></div>
                     <div class="arrivals_single_content">
-                      <div class="arrivals_single_category"><a href="#">Smartphones</a></div>
+                      <div class="arrivals_single_category text-capitalize">{{$events[0]->type}}</div>
                       <div class="arrivals_single_name_container clearfix">
-                        <div class="arrivals_single_name"><a href="#">LUNA Smartphone</a></div>
-                        <div class="arrivals_single_price text-right">$379</div>
+                        <div class="arrivals_single_name text-capitalize" >{{$events[0]->name}}</div>
+                        <div class="arrivals_single_price text-right">Rp. {{number_format($events[0]->price,2,',','.')}}</div>
                       </div>
-                      <div class="rating_r rating_r_4 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                      <form action="#"><button class="arrivals_single_button">Add to Cart</button></form>
+                      <a class="btn arrivals_single_button" role="button" style="color: white;" href="{{url('events') . "/" . $events[0]->id}}">View</a>
                     </div>
                     <div class="arrivals_single_fav product_fav active"><i class="fas fa-heart"></i></div>
                     <ul class="arrivals_single_marks product_marks">

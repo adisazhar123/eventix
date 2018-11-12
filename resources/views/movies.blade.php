@@ -9,6 +9,20 @@
 	<link href="{{asset('assets/css/movie.css')}}" rel="stylesheet" type="text/css">
 @endsection
 
+@section('categories')
+	<div class="cat_menu_container">
+		<div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
+			<div class="cat_burger"><span></span><span></span><span></span></div>
+			<div class="cat_menu_text">categories</div>
+		</div>
+		<ul class="cat_menu">
+			<li><a href="{{url('movies')}}">Cinemas <i class="fas fa-chevron-right"></i></a></li>
+			<li><a href="{{url('events')}}">Events<i class="fas fa-chevron-right"></i></a></li>
+			<li><a href="{{url('sports')}}">Sport<i class="fas fa-chevron-right"></i></a></li>
+		</ul>
+	</div>
+@endsection
+
 @section('content')
 <div class="super_container">
 	<!-- Shop -->
