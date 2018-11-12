@@ -60,9 +60,9 @@
 				</div>
 
 				<div class="col-lg-9">
-					<div class="form-group">
+					{{-- <div class="form-group">
 						<input type="date" class="form-control" name="" value="">
-					</div>
+					</div> --}}
 					<!-- Shop Content -->
 
 					<div class="shop_content">
