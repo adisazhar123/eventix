@@ -89,7 +89,7 @@
                                     <!-- /main -->
 
                                     <!-- Forms -->
-                                    <li class="navigation-header"><span>Forms</span> <i class="icon-menu" title="Forms"></i></li>
+                                    {{-- <li class="navigation-header"><span>Forms</span> <i class="icon-menu" title="Forms"></i></li> --}}
                                     <!-- /forms -->
                                     <!-- /data visualization -->
                                 </ul>
