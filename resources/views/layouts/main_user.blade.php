@@ -89,7 +89,7 @@
                                     <!-- Main -->
                                     <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
                                     <li id="nav-home"><a href="{{url('/user')}}"><i class="icon-home4"></i> <span>Home</span></a></li>
-                                    <li id="nav-ticket"><a href="{{url('/user/ordered-tickets')}}"><i class="fa fa-ticket" aria-hidden="true"></i> <span>Ordered Tickets</span></a></li>
+                                    <li id="nav-tickets"><a href="{{url('/user/ordered-tickets')}}"><i class="fa fa-ticket" aria-hidden="true"></i> <span>Ordered Tickets</span></a></li>
                                     <li id="nav-movies"><a href="{{url('/user/booked-movies')}}"><i class="fa fa-ticket" aria-hidden="true"></i> <span>Booked Movies</span></a></li>
 
                                     <!-- /main -->
