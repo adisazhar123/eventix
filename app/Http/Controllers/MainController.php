@@ -13,7 +13,9 @@ class MainController extends Controller
 {
 	public function index(){
 		$films = Film::take(5)->get();
-        return view('welcome', compact('films'));
+		$events = Event::where('approved', 1)->where('sport_type', '=', null)->take(10)->get();
+		$sports = Event::where('approved', 1)->where('sport_type', '!=', null)->take(10)->get();
+        return view('welcome', compact('films','sports', 'events'));
 	}
 
 	public function single_ticket($id){
@@ -31,7 +33,7 @@ class MainController extends Controller
 	        return view('movies', compact('films'));
 		}
 		elseif ($request->categories=="Events") {
-			$events = Event::where('approved', 1)->where('name', 'like', '%'.$request->keyword.'%')->paginate(10);
+			$events = Event::where('approved', 1)->where('sport_type', '=', null)->where('name', 'like', '%'.$request->keyword.'%')->paginate(10);
 			return view('events', ['events' => $events]);
 		}
 		else{

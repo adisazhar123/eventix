@@ -28,8 +28,8 @@
 @endsection
 
 @section('header')
-  <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">My Tickets</span> - These are my events!
-    <button id="new-ticket" type="button" class="btn btn-primary" name="button" style="float: right">New ticket</button>
+  <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">My Events</span> - These are my events!
+    <button id="new-ticket" type="button" class="btn btn-primary" name="button" style="float: right">New event</button>
   </h4>
 @endsection
 

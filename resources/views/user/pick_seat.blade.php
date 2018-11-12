@@ -260,7 +260,7 @@
 		              		swal("Ticket purchased succefully! thank you.",{
 								closeOnClickOutside: false,
 		              		}).then(function() {
-								window.location = '{{url("user")}}';
+								window.location = '{{url("user/booked-movies")}}';
 							});
 		              	}
 		          	},

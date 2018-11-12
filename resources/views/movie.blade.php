@@ -20,11 +20,9 @@
 			<div class="cat_menu_text">categories</div>
 		</div>
 		<ul class="cat_menu">
-			<li><a href="#">All Categories <i class="fas fa-chevron-right ml-auto"></i></a></li>
-			<li><a href="#">Cinemas <i class="fas fa-chevron-right"></i></a></li>
-			<li><a href="#">Events<i class="fas fa-chevron-right"></i></a></li>
-			<li><a href="#">Sport<i class="fas fa-chevron-right"></i></a></li>
-			<li><a href="#">Others<i class="fas fa-chevron-right"></i></a></li>
+			<li><a href="{{url('movies')}}">Cinemas <i class="fas fa-chevron-right"></i></a></li>
+			<li><a href="{{url('events')}}">Events<i class="fas fa-chevron-right"></i></a></li>
+			<li><a href="{{url('sports')}}">Sport<i class="fas fa-chevron-right"></i></a></li>
 		</ul>
 	</div>
 @endsection
