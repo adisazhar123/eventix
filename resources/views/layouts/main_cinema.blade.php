@@ -84,8 +84,8 @@
                                     <!-- Main -->
                                     <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
                                     <li id="nav-home"><a href="{{url('/xxi')}}"><i class="icon-home4"></i> <span>Home</span></a></li>
-                                    <li id="nav-home"><a href="{{url('/xxi/film')}}"><i class="fas fa-film"></i> <span>Now Playing Films</span></a></li>
-                                    <li id="nav-home"><a href="{{url('/xxi/cinema')}}"><i class="icon-home4"></i> <span>Cinemas</span></a></li>
+                                    <li id="nav-film"><a href="{{url('/xxi/film')}}"><i class="fas fa-film"></i> <span>Now Playing Films</span></a></li>
+                                    <li id="nav-cinema"><a href="{{url('/xxi/cinema')}}"><i class="icon-home4"></i> <span>Cinemas</span></a></li>
                                     <!-- /main -->
 
                                     <!-- Forms -->

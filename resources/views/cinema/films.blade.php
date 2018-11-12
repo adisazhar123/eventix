@@ -61,6 +61,7 @@
     $("#new-film").click(function(){
       $("#new-film-modal").modal('show');
     });
+    $("#nav-film").addClass("active");
   });
 </script>
 @endsection
