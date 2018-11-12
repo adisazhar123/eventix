@@ -89,6 +89,7 @@
 									<div class="form-group">
 										<label for="">Quantity</label>
 										<input type="number" class="form-control" name="" value="1" id="ticket_quantity" min="1" max="{{$event->quota}}" step="1">
+										<small>Max: {{$event->quota}}</small>
 									</div>
 
 								</div>

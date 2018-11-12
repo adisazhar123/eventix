@@ -171,6 +171,8 @@
       });
     });
 
+    $("#nav-home").addClass("active");
+
 
   });
 </script>

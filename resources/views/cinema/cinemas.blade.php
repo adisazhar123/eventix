@@ -43,6 +43,7 @@
 <script type="text/javascript">
     $(document).ready( function () {
       $('table').DataTable();
+      $("#nav-cinema").addClass("active");
     });
 </script>
 @endsection

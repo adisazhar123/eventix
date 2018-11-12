@@ -53,6 +53,7 @@ $(document).ready( function () {
   $('table').DataTable({
     responsive: true
   });
+  $("#nav-tickets").addClass("active");
 });
 </script>
 @endsection

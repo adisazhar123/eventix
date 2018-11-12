@@ -94,6 +94,7 @@
 
     $(document).ready( function () {
       $('table').DataTable();
+      $("#nav-home").addClass("active");
     });
 
 

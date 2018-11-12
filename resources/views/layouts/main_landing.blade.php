@@ -139,7 +139,11 @@
 
             @yield('content')
 
+        @include('layouts.slider-footer')
+
         @include('layouts.footer')
+        {{-- @section('slider') --}}
+        {{-- @endsection --}}
         </div>
 
         <!-- JavaScript files-->
