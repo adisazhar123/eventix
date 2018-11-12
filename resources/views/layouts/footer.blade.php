@@ -64,7 +64,7 @@
             <ul class="footer_list">
               <li><a href="{{url('movies')}}">Cinemas</a></li>
               <li><a href="{{url('events')}}">Events</a></li>
-              <li><a href="#">Sports</a></li>
+              <li><a href="{{url('sports')}}">Sports</a></li>
             </ul>
           </div>
         </div>
@@ -97,10 +97,10 @@
             </div>
             <div class="logos ml-sm-auto">
               <ul class="logos_list">
-                <li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
-                <li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
-                <li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
-                <li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
+                <li><a href="#"><img src="{{asset('images/logos_1.png')}}" alt=""></a></li>
+                <li><a href="#"><img src="{{asset('images/logos_2.png')}}" alt=""></a></li>
+                <li><a href="#"><img src="{{asset('images/logos_3.png')}}" alt=""></a></li>
+                <li><a href="#"><img src="{{asset('images/logos_4.png')}}" alt=""></a></li>
               </ul>
             </div>
           </div>
