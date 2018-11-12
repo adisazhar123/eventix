@@ -87,5 +87,7 @@
     });
   });
 
+  $("#nav-home").addClass("active");
+
 </script>
 @endsection

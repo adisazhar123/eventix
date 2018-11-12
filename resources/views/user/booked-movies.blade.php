@@ -45,6 +45,7 @@ $(document).ready( function () {
   $('table').DataTable({
     responsive: true
   });
+  $("#nav-movies").addClass("active");
 });
 </script>
 @endsection
