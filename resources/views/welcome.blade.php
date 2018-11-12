@@ -10,16 +10,20 @@
 
 @section('content')
   <div class="banner">
-    <div class="banner_background" style="background-image:url({{('images/banner_background.jpg')}})"></div>
+    <div class="banner_background" style="background-image:url({{('images/concert.jpg')}})"></div>
     <div class="container fill_height">
       <div class="row fill_height">
-        <div class="banner_product_image"><img src="{{('images/banner_product.png')}}" alt=""></div>
+        <div class="banner_product_image">
+{{--           <img src="{{('images/banner_product.png')}}" alt=""> --}}
+        </div>
         <div class="col-lg-6 offset-lg-3 fill_height">
           <div class="banner_content">
-            <h1 class="banner_text">new era of smartphones</h1>
-            <div class="banner_price"><span>$530</span>$460</div>
-            <div class="banner_product_name">Apple Iphone 6s</div>
-            <div class="button banner_button"><a href="#">Get My Tickets</a></div>
+            <h1 class="banner_text">The best place to get tickets</h1>
+            <div><br><br></div>
+            <div class="d-none d-sm-block"><br><br><br></div>
+{{--             <div class="banner_price"><span>$530</span>$460</div>
+            <div class="banner_product_name">Cinema, Events, Sports</div> --}}
+            <div class="button banner_button"><a href="#categories">Get My Tickets</a></div>
           </div>
         </div>
       </div>
@@ -28,12 +32,12 @@
 
   <!-- Characteristics -->
 
-  <div class="characteristics">
+  <div class="characteristics" id="categories">
     <div class="container">
       <div class="row justify-content-center">
 
         <!-- Char. Item -->
-        <div class="col-lg-3 col-md-6 char_col">
+        <div class="col-lg-3 col-md-6 char_col d-none d-sm-block">
           <div class="char_item d-flex flex-row align-items-center justify-content-start">
             <div class="char_content">
               <div class="char_title">Categories</div>
@@ -44,6 +48,7 @@
 
         <!-- Char. Item -->
         <div class="col-lg-3 col-md-6 char_col" style="cursor: pointer;">
+          <a href="{{url('movies')}}">
           <div class="char_item d-flex flex-row align-items-center justify-content-start">
             <div class="char_icon"><img src="{{('images/categories_cinema.png')}}" alt=""></div>
             <div class="char_content">
@@ -51,6 +56,7 @@
               <div class="char_subtitle">Movies ..</div>
             </div>
           </div>
+          </a>
         </div>
 
         <!-- Char. Item -->
@@ -729,7 +735,7 @@
                 <div class="trends_item is_new">
                   <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('storage/'.$file[1].'/'.$file[2]) }}" alt="" style="object-fit: cover;"></div>
                   <div class="trends_content">
-                    <div class="trends_category"><a href="#" class="text-capitalize">By :&nbsp;{{$film->director}}</a></div>
+                    <div class="trends_category"><a href="" style="cursor: default;" class="text-capitalize">By :&nbsp;{{$film->director}}</a></div>
                     <div class="trends_info clearfix">
 {{--                       <div class="trends_name"><a href="#">{{$film->name}}</a></div> --}}
                       <div class="trends_price"><a href="{{url('movies')}}"><i class="fab fa-youtube"></i> Get ticket</a></div>
@@ -754,4 +760,40 @@
 @section('script')
   <script src="{{asset('plugins/slick-1.8.0/slick.js')}}"></script>
   <script src="{{asset('js/custom.js')}}"></script>
+  <script type="text/javascript">
+    $('a[href*="#"]')
+      .not('[href="#"]')
+      .not('[href="#0"]')
+      .click(function(event) {
+        // On-page links
+        if (
+          location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+          && 
+          location.hostname == this.hostname
+        ) {
+          // Figure out element to scroll to
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          // Does a scroll target exist?
+          if (target.length) {
+            // Only prevent default if animation is actually gonna happen
+            event.preventDefault();
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 1000, function() {
+              // Callback after animation
+              // Must change focus!
+              var $target = $(target);
+              $target.focus();
+              if ($target.is(":focus")) { // Checking if the target was focused
+                return false;
+              } else {
+                $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                $target.focus(); // Set focus again
+              };
+            });
+          }
+        }
+      });
+  </script>
 @endsection

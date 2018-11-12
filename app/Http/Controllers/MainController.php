@@ -25,6 +25,21 @@ class MainController extends Controller
 		return redirect('/');
 	}
 
+	public function movieSearch(Request $request){
+		if ($request->categories=="Cinemas") {
+			$films = Film::where('name', 'like', '%'.$request->keyword.'%')->orderBy('name')->paginate(10);
+	        return view('movies', compact('films'));
+		}
+		elseif ($request->categories=="Events") {
+			$events = Event::where('approved', 1)->where('name', 'like', '%'.$request->keyword.'%')->paginate(10);
+			return view('events', ['events' => $events]);
+		}
+		else{
+			
+		}
+
+	}
+
 	public function eventPage(){
 		// get approved events and still in date range
 		// TODO: query based on events, sports etc

@@ -65,21 +65,21 @@
                                 <div class="header_search">
                                     <div class="header_search_content">
                                         <div class="header_search_form_container">
-                                            <form action="#" class="header_search_form clearfix">
-                                                <input type="search" required="required" class="header_search_input" placeholder="Search for events, tickets, etc..">
+                                            <form action="{{url('movies/l')}}" class="header_search_form clearfix" method="get" autocomplete="off" id="searchForm">
+                                                <input type="search" required class="header_search_input" placeholder="Search for events, tickets, etc.." name="keyword">
                                                 <div class="custom_dropdown">
                                                     <div class="custom_dropdown_list">
-                                                        <span class="custom_dropdown_placeholder clc">All Categories</span>
+                                                        <span class="custom_dropdown_placeholder clc">Categories</span>
                                                         <i class="fas fa-chevron-down"></i>
-                                                        <ul class="custom_list clc">
-                                                            <li><a class="clc" href="#">All Categories</a></li>
-                                                            <li><a class="clc" href="#">Cinemas</a></li>
-                                                            <li><a class="clc" href="#">Events</a></li>
-                                                            <li><a class="clc" href="#">Sports</a></li>
+                                                        <ul class="custom_list clc" id="ulIl">
+                                                            <li id="Cinemas"><a class="clc" href="#">Cinemas</a></li>
+                                                            <li id="Events"><a class="clc" href="#">Events</a></li>
+                                                            <li id="Sports"><a class="clc" href="#">Sports</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="header_search_button trans_300" value="Submit"><img src="{{asset('images/search.png')}}" alt=""></button>
+                                                <input type="hidden" name="categories" id="liIn">
+                                                <button type="button" id="other" class="header_search_button trans_300" value="Submit"><img src="{{asset('images/search.png')}}" alt=""></button>
                                             </form>
                                         </div>
                                     </div>
@@ -159,6 +159,17 @@
             function logOut(){
                 $(".logout-form").submit();
             }
+
+            var select=1;
+
+            $("#ulIl").on("click", "a", function(e){
+                select = $(this).parent().attr('id');
+            })
+
+            $("#other").click(function() {
+                $("#liIn").val(select)
+                $("#searchForm").submit();
+            });
         </script>
 
         @yield('script')
