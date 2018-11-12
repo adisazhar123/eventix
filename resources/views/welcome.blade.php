@@ -49,13 +49,15 @@
         <!-- Char. Item -->
         <div class="col-lg-3 col-md-6 char_col" style="cursor: pointer;">
           <a href="{{url('movies')}}">
-          <div class="char_item d-flex flex-row align-items-center justify-content-start">
-            <div class="char_icon"><img src="{{('images/categories_cinema.png')}}" alt=""></div>
-            <div class="char_content">
-              <div class="char_title">Cinema</div>
-              <div class="char_subtitle">Movies ..</div>
+
+            <div class="char_item d-flex flex-row align-items-center justify-content-start">
+              <div class="char_icon"><img src="{{('images/categories_cinema.png')}}" alt=""></div>
+              <div class="char_content">
+                <div class="char_title">Cinema</div>
+                <div class="char_subtitle">Movies ..</div>
+              </div>
             </div>
-          </div>
+
           </a>
         </div>
 
@@ -74,6 +76,7 @@
 
         <!-- Char. Item -->
         <div class="col-lg-3 col-md-6 char_col" style="cursor: pointer;">
+          <a href="{{url('sports')}}">
           <div class="char_item d-flex flex-row align-items-center justify-content-start">
             <div class="char_icon"><img src="{{('images/categories_sports.png')}}" alt=""></div>
             <div class="char_content">
@@ -84,6 +87,7 @@
         </div>
       </div>
     </div>
+    </a>
   </div>
   <!-- Deals of the week -->
 

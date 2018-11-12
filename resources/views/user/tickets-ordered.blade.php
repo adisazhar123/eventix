@@ -17,20 +17,28 @@
         <div class="panel-body">
           <table class="table table-striped table-hover table-responsive">
             <thead>
+              <th>Ticket ID</th>
               <th>Event name</th>
               <th>Date</th>
               <th>Action</th>
             </thead>
             <tbody>
-              @for ($i = 0; $i < 5; $i++)
+              @foreach ($tickets as $t)
                 <tr>
-                  <td>Ludruk</td>
-                  <td>09-10-2018</td>
                   <td>
-                    <button type="button" name="button" class="btn btn-info">View</button>
+                    {{$t->id}}
+                  </td>
+                  <td>
+                    {{$t->orders[0]->event->name}}
+                  </td>
+                  <td>
+                    {{$t->created_at}}
+                  </td>
+                  <td>
+                    <a href="{{url('user/tickets', $t->id)}}" name="button" class="btn btn-info">View</a>
                   </td>
                 </tr>
-              @endfor
+              @endforeach
             </tbody>
           </table>
         </div>

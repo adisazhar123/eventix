@@ -91,7 +91,7 @@
 
 					<div class="shop_content">
 						<div class="shop_bar clearfix">
-							<div class="shop_product_count"><span>{{$events->count()}}</span> events found</div>
+							<div class="shop_product_count"><span>{{$events->count()}}</span> results found</div>
 							<div class="shop_sorting">
 								<span>Sort by:</span>
 								<ul>

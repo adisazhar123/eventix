@@ -6,6 +6,8 @@ use App\Film;
 use App\EventPicture;
 use App\Schedule;
 use App\OrderMovie;
+use App\ETicket;
+use App\Order;
 use Storage;
 use Auth;
 use Illuminate\Http\Request;
@@ -27,14 +29,15 @@ class UserController extends Controller
 	}
 
 	public function orderedTicketsPage(){
-		return view('user.tickets-ordered');
+		$tickets = $this->getOrderedEvents();
+		return view('user.tickets-ordered', ['tickets' => $tickets]);
 	}
 
 	public function bookedMoviesPage(){
 		$tickets = OrderMovie::where('user_id',Auth::user()->id)->get();
 		return view('user.booked-movies', compact('tickets'));
 	}
-	
+
 	// new event
 	public function storeEvent(Request $request){
 		try {
@@ -120,5 +123,42 @@ class UserController extends Controller
       	}
       return response()->json(['message'=>'success'], 201);
     }
+
+		public function orderEvent(Request $request){
+			$quantity = $request->quantity;
+			$event_id = $request->event_id;
+			// create new order
+			try {
+				$e_ticket = ETicket::create([
+					'user_id' => Auth::user()->id
+				]);
+
+				for ($i=0; $i < $quantity; $i++) {
+					Order::create([
+						'event_id' => $event_id,
+						'user_id' => Auth::user()->id,
+						'e_ticket_id' => $e_ticket->id
+					]);
+
+				}
+			} catch (\Exception $e) {
+				return response()->json(['message' => $e->getMessage()], 500);
+			}
+			return response()->json(['message' => 'ok'], 201);
+		}
+
+		public function getOrderedEvents(){
+			$e_tickets = ETicket::whereHas('orders')
+			->with('orders.event')->get();
+			return $e_tickets;
+		}
+
+		public function getTicket($id){
+			$orders = Order::where('e_ticket_id', $id)
+								->get();
+			// return $orders;
+			return view('user.e-ticket', ['orders' => $orders,
+			'id' => $id]);
+		}
 
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrderTable extends Migration
+class CreateETicketTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('order', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('event_id');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('e_ticket_id');
-            $table->timestamps();
+        Schema::create('e-ticket', function(Blueprint $table){
+          $table->increments('id');
+          $table->unsignedInteger('user_id');
+          $table->timestamps();
         });
     }
 
@@ -29,6 +27,6 @@ class CreateOrderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order');
+        //
     }
 }
