@@ -128,11 +128,18 @@
 
 		$(".cart_button").click(function(){
 			if (!'{{Auth::user()}}') {
-		        swal("Please Login first",{
+		        swal("Please Login first!",{
 					closeOnClickOutside: false,
 	           	}).then(function() {
 						window.location = '{{url("login")}}';
 				});
+			}
+
+			if ('{{Auth::user()}}' && '{{Auth::user()->role}}' != 3) {
+				swal("You must have a user account to order tickets!",{
+					closeOnClickOutside: false,
+					});
+					return false;
 			}
 
 			const quantity = $("#ticket_quantity").val();

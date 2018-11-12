@@ -60,7 +60,9 @@
 				</div>
 
 				<div class="col-lg-9">
-
+					<div class="form-group">
+						<input type="date" class="form-control" name="" value="">
+					</div>
 					<!-- Shop Content -->
 
 					<div class="shop_content">
