@@ -58,13 +58,13 @@
 					<div class="shop_content">
 						<div class="shop_bar clearfix">
 							<div class="shop_product_count"><span>{{$films->count()}}</span> Films found</div>
-							<div class="shop_sorting">
+							{{-- <div class="shop_sorting">
 								<span>Sort by:</span>
 								<ul>
 									<li>
 									</li>
 								</ul>
-							</div>
+							</div> --}}
 						</div>
 
 
