@@ -25,7 +25,7 @@ class MainController extends Controller
 		return redirect('/');
 	}
 
-	public function movieSearch(Request $request){
+	public function catSearch(Request $request){
 		if ($request->categories=="Cinemas") {
 			$films = Film::where('name', 'like', '%'.$request->keyword.'%')->orderBy('name')->paginate(10);
 	        return view('movies', compact('films'));
@@ -35,14 +35,12 @@ class MainController extends Controller
 			return view('events', ['events' => $events]);
 		}
 		else{
-			
+			$events = Event::where('approved', 1)->where('sport_type', '!=', null)->where('name', 'like', '%'.$request->keyword.'%')->paginate(10);
+			return view('events', ['events' => $events]);
 		}
-
 	}
 
 	public function eventPage(){
-		// get approved events and still in date range
-		// TODO: query based on events, sports etc
 		$events = Event::where('approved', 1)->where('sport_type', null)->paginate(10);
 		return view('events', ['events' => $events]);
 	}

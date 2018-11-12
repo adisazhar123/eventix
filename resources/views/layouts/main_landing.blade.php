@@ -65,7 +65,7 @@
                                 <div class="header_search">
                                     <div class="header_search_content">
                                         <div class="header_search_form_container">
-                                            <form action="{{url('movies/l')}}" class="header_search_form clearfix" method="get" autocomplete="off" id="searchForm">
+                                            <form action="{{url('search/l')}}" class="header_search_form clearfix" method="get" autocomplete="off" id="searchForm">
                                                 <input type="search" required class="header_search_input" placeholder="Search for events, tickets, etc.." name="keyword">
                                                 <div class="custom_dropdown">
                                                     <div class="custom_dropdown_list">
