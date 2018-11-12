@@ -80,7 +80,7 @@
 						</p>
 						<p>Location: {{$event->city}}</p>
 						<p>
-							Date: {{$event->date1 -- $event->date2}}
+							Date: {{$event->date1 . "--" . $event->date2}}
 						</p>
 						<p>
 							<strong>Posted by: {{$posted_by->name}}</strong>
