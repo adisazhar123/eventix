@@ -119,6 +119,7 @@
 
       const event_table = $('table').DataTable({
         ajax: '{{url('user/events')}}',
+        responsive: true,
         columns: [
         { data: "name" },
         { data: "date1" },
