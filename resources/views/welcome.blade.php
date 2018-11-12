@@ -107,11 +107,11 @@
                   <div class="deals_content">
                     <div class="deals_info_line d-flex flex-row justify-content-start">
                       <div class="deals_item_category text-capitalize">{{$sports[0]->type}}</div>
-                      <div class="deals_item_price_a ml-auto">{{number_format($sports[0]->price,0,',','.')}}</div>
+                      {{-- <div class="deals_item_price_a ml-auto">{{number_format($sports[0]->price,0,',','.')}}</div> --}}
                     </div>
                     <div class="deals_info_line d-flex flex-row justify-content-start">
                       <div class="deals_item_name">{{$sports[0]->name}}</div>
-                      <div class="deals_item_price ml-auto">{{number_format($sports[0]->price*0.75,0,',','.')}}</div>
+                      <div class="deals_item_price ml-auto">{{number_format($sports[0]->price,0,',','.')}}</div>
                     </div>
                     <div class="available">
                       <div class="available_line d-flex flex-row justify-content-start">
