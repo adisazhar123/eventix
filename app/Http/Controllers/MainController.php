@@ -28,7 +28,7 @@ class MainController extends Controller
 	public function eventPage(){
 		// get approved events and still in date range
 		// TODO: query based on events, sports etc
-		$events = Event::where('approved', 1)->paginate(10);
+		$events = Event::where('approved', 1)->where('sport_type', null)->paginate(10);
 		return view('events', ['events' => $events]);
 	}
 
@@ -46,5 +46,10 @@ class MainController extends Controller
 	public function categoryMovie($category){
 		$films = Film::orderBy('name')->where('genre',$category)->paginate(10);
         return view('movies', compact('films'));
+	}
+
+	public function sportPage(){
+		$events = Event::where('approved', 1)->where('sport_type', '!=', null)->paginate(10);
+		return view('events', ['events' => $events]);
 	}
 }

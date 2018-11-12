@@ -233,15 +233,31 @@
 @section('script')
 	<script src="{{asset('js/product_custom.js')}}"></script>
 	<script type="text/javascript">
+		// add csrf token to headers in ajax call
+		$.ajaxSetup({
+				headers: {
+						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+		});
+
 		$(".cart_button").click(function(){
 			if (!'{{Auth::user()}}') {
 				alert("Please login first!");
 			}
+
 			const quantity = $("#ticket_quantity").val();
+			const event_id = '{{$event->id}}';
 			// const
 			$.ajax({
-				url: '{{url('order/events')}}',
-				data: {}
+				url: '{{url('user/tickets')}}',
+				data: {quantity, event_id},
+				method: "POST",
+				success: function(){
+					alert("Successfully ordered ticket/s!");
+				},
+				error: function(){
+					alert("Error");
+				}
 			})
 
 

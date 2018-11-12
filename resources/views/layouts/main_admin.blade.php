@@ -90,13 +90,13 @@
 
                                     <!-- Main -->
                                     <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
-                                    <li id="nav-home"><a href="{{url('/admin')}}"><i class="icon-home4"></i> <span>Home</span></a></li>
+                                    <li id="nav-home" class="active"><a href="{{url('/admin')}}"><i class="icon-home4"></i> <span>Home</span></a></li>
 
 
                                     <!-- /main -->
 
                                     <!-- Forms -->
-                                    <li class="navigation-header"><span>Forms</span> <i class="icon-menu" title="Forms"></i></li>
+                                    {{-- <li class="navigation-header"><span>Forms</span> <i class="icon-menu" title="Forms"></i></li> --}}
                                     <!-- /forms -->
                                     <!-- /data visualization -->
                                 </ul>
