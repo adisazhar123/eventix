@@ -22,6 +22,9 @@ class UserOnly
         if (Auth::user() && Auth::user()->role == 2) {
             return redirect('/xxi');
         }
+        if ($request->ajax()) {
+          return response()->json(['message' => 'unauthorised'], 401);
+        }
         return redirect('/login');
     }
 }

@@ -19,6 +19,9 @@ class CinemaXxiOnly
         if (Auth::user() && Auth::user()->role == 2) {
             return $next($request);
         }
+        if ($request->ajax()) {
+          return response()->json(['message' => 'unauthorised'], 401);
+        }
         return redirect('/');
     }
 }

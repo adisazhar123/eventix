@@ -19,6 +19,9 @@ class AdminOnly
         if (Auth::user() && Auth::user()->role == 1) {
             return $next($request);
         }
+        if ($request->ajax()) {
+          return response()->json(['message' => 'unauthorised'], 401);
+        }
         return redirect('/');
     }
 }
