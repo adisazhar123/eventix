@@ -38,16 +38,16 @@ Route::group(['middleware' => ['user_only']], function(){
 	});
 });
 
-// Route::group(['middleware' => ['admin_only']], function(){
+Route::group(['middleware' => ['admin_only']], function(){
 	Route::prefix('admin')->group(function(){
 		Route::get('/', 'AdminController@index');
 		Route::get('events', 'AdminController@getEvents');
 		Route::put('approve/events/{id}', 'AdminController@approveEvent');
 		Route::put('decline/events/{id}', 'AdminController@declineEvent');
 	});
-// });
+});
 
-// Route::group(['middleware' => ['xxi_only']], function(){
+Route::group(['middleware' => ['xxi_only']], function(){
 	Route::prefix('xxi')->group(function(){
 		Route::get('/', 'CinemaController@index');
   	Route::get('/new/film', 'CinemaController@newFilmPage');
@@ -56,7 +56,7 @@ Route::group(['middleware' => ['user_only']], function(){
   	Route::post('films', 'CinemaController@storeFilm');
   	Route::post('schedules', 'CinemaController@storeSchedule');
 	});
-// });
+});
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

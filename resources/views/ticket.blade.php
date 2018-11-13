@@ -135,14 +135,14 @@
 				});
 			}
 
-			if ('{{Auth::user()}}') {
-				if ('{{Auth::user()->role}}' != 3) {
-					swal("You must have a user account to order tickets!",{
-						closeOnClickOutside: false,
-						});
-						return false;
-				}
-			}
+			// if ('{{Auth::user()}}') {
+			// 	if ('{{Auth::user()->role}}' != 3) {
+			// 		swal("You must have a user account to order tickets!",{
+			// 			closeOnClickOutside: false,
+			// 			});
+			// 			return false;
+			// 	}
+			// }
 
 			const quantity = $("#ticket_quantity").val();
 			const event_id = '{{$event->id}}';
