@@ -16,6 +16,26 @@
           .form-control{
             color: black !important;
           }
+
+          .select-category{
+            margin-left: 0px;
+            min-width: 100%;
+            background: white;
+            color: black;
+          }
+
+          #mobile-search-btn{
+            width: 100%;
+            background-color: #551a8b;
+            border-color: #551a8b;
+            border-radius: 5px;
+            border-width: none;
+
+          }
+
+          #mobile-search-btn:hover{
+            cursor: pointer;
+          }
         </style>
 
         @yield('style')
@@ -126,8 +146,15 @@
                             <div class="col">
                                 <div class="page_menu_content">
                                     <div class="page_menu_search">
-                                        <form action="#">
-                                            <input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
+                                        <form action="{{url('search/l')}}">
+                                            <input type="search" required="required" class="page_menu_search_input mb-2" placeholder="Search for products...">
+                                            <select class="form-control select-category mb-2" name="">
+                                              <option value="" disabled selected>Categories</option>
+                                              <option value="Cinemas">Cinemas</option>
+                                              <option value="Events">Events</option>
+                                              <option value="Sports">Sports</option>
+                                            </select>
+                                            <button type="button" name="button" id="mobile-search-btn"><img src="{{asset('images/search.png')}}" alt=""></button>
                                         </form>
                                     </div>
                                 </div>
