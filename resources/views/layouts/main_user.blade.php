@@ -21,6 +21,11 @@
           .form-control{
             color: black !important;
           }
+
+          .navbar-brand img{
+            -webkit-filter: brightness(0) invert(1);
+            filter: brightness(0) invert(1);
+          }
         </style>
 
     </head>
@@ -28,7 +33,7 @@
         <div class="navbar navbar-inverse bg-indigo">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{{url('/')}}">
-                  EvenTix
+                  <img src="{{asset('images/logo-eventix.png')}}" alt="">
                 </a>
 
                 <ul class="nav navbar-nav visible-xs-block">

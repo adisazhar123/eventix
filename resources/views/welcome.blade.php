@@ -203,7 +203,7 @@
                 </div>
                 <div class="col-lg-8 col-md-6 fill_height">
                   <div class="banner_2_image_container">
-                    <div class="banner_2_image"><img src="http://mferdyp.com/wp-content/uploads/2018/04/Untitled-1-01-1-900x900.jpg" alt=""></div>
+                    <div class="banner_2_image"><img src="{{asset('images/xxi-logo.png')}}" alt=""></div>
                   </div>
                 </div>
               </div>
