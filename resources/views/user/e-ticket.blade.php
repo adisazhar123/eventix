@@ -23,7 +23,7 @@
       .ticket {
       display: grid;
       grid-template-rows: auto 1fr auto;
-      min-width: 24rem;
+      min-width: 30rem;
       }
       .ticket__header, .ticket__body, .ticket__footer {
       padding: 1.25rem;
@@ -117,8 +117,10 @@
     <article class="ticket">
       <header class="ticket__wrapper">
         <div class="ticket__header">
-          Eventix <br>
-          ID: {{$id}}
+          <img src="{{asset('images/logo-eventix.png')}}" alt="" height="150px">
+          <p>
+            ID: {{$id}}
+          </p>
         </div>
       </header>
       <div class="ticket__divider">

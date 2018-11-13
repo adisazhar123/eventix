@@ -76,9 +76,11 @@
                 <div class="header_main">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-2 col-sm-3 col-3 order-1">
+                            <div class="col-lg-2 col-sm-3 col-3 order-1 mb-4">
                                 <div class="logo_container">
-                                    <div class="logo"><a href="{{url('/')}}">Eventix</a></div>
+                                    <div class="logo"><a href="{{url('/')}}">
+                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="130px">
+                                    </a></div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
@@ -143,7 +145,7 @@
                 <div class="page_menu">
                     <div class="container">
                         <div class="row">
-                            <div class="col">
+                            <div class="col mb-3">
                                 <div class="page_menu_content">
                                     <div class="page_menu_search">
                                         <form action="{{url('search/l')}}">
