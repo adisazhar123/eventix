@@ -134,6 +134,7 @@
 	           	}).then(function() {
 						window.location = '{{url("login")}}';
 				});
+				return false;
 			}
 
 			const quantity = $("#ticket_quantity").val();
