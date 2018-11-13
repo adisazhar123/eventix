@@ -122,6 +122,11 @@
             ID: {{$id}}
           </p>
         </div>
+        <div class="ticket__header">
+          <small>
+            {{date_format(date_create($orders[0]->created_at), 'd/m/Y - H:i')}}
+          </small>
+        </div>
       </header>
       <div class="ticket__divider">
         <div class="ticket__notch"></div>
@@ -135,6 +140,7 @@
         <section class="ticket__section">
           <h3>Event name</h3>
           <p>{{$orders[0]->event->name}}</p>
+          <p>{{date_format(date_create($orders[0]->event->date1), 'd/m/Y') ." -- ". date_format(date_create($orders[0]->event->date2), 'd/m/Y')}}</p>
         </section>
         <section class="ticket__section">
           <h3>Quantity</h3>
