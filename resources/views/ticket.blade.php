@@ -127,7 +127,7 @@
 		});
 
 		$(".cart_button").click(function(){
-			if (!'{{Auth::user()}}') {
+			if ('{{Auth::user()}}') {
 		        swal("Please Login first!",{
 					closeOnClickOutside: false,
 	           	}).then(function() {
