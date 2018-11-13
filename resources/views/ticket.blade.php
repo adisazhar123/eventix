@@ -128,7 +128,7 @@
 		});
 
 		$(".cart_button").click(function(){
-			if ($("#is_logged_in").val()) {
+			if (!$("#is_logged_in").val()) {
 		        swal("Please Login first!",{
 					closeOnClickOutside: false,
 	           	}).then(function() {
