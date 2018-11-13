@@ -111,6 +111,7 @@
 
 			</div>
 		</div>
+		<input type="hidden" id="is_logged_in" name="" value="{{Auth::user()}}">
 	</div>
 
 @endsection
@@ -127,7 +128,7 @@
 		});
 
 		$(".cart_button").click(function(){
-			if ('{{Auth::user()}}') {
+			if ($("#is_logged_in").val()) {
 		        swal("Please Login first!",{
 					closeOnClickOutside: false,
 	           	}).then(function() {
