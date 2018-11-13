@@ -79,7 +79,7 @@
                             <div class="col-lg-2 col-sm-3 col-3 order-1 mb-4">
                                 <div class="logo_container">
                                     <div class="logo"><a href="{{url('/')}}">
-                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="130px">
+                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="80px">
                                     </a></div>
                                 </div>
                             </div>
@@ -148,15 +148,15 @@
                             <div class="col mb-3">
                                 <div class="page_menu_content">
                                     <div class="page_menu_search">
-                                        <form action="{{url('search/l')}}">
-                                            <input type="search" required="required" class="page_menu_search_input mb-2" placeholder="Search for products...">
-                                            <select class="form-control select-category mb-2" name="">
+                                        <form action="{{url('search/l')}}" method="get" autocomplete="off"  placeholder="Search for events, tickets, etc.." name="keyword" id="searchForm2">
+                                            <input type="search" required class="page_menu_search_input mb-2" name="keyword">                                          
+                                            <select class="form-control select-category mb-2" name="categories">
                                               <option value="" disabled selected>Categories</option>
                                               <option value="Cinemas">Cinemas</option>
                                               <option value="Events">Events</option>
                                               <option value="Sports">Sports</option>
                                             </select>
-                                            <button type="button" name="button" id="mobile-search-btn"><img src="{{asset('images/search.png')}}" alt=""></button>
+                                            <button type="button" class="other2" id="mobile-search-btn"><img src="{{asset('images/search.png')}}" alt=""></button>
                                         </form>
                                     </div>
                                 </div>
@@ -202,6 +202,10 @@
             $("#other").click(function() {
                 $("#liIn").val(select)
                 $("#searchForm").submit();
+            });
+
+            $(".other2").click(function() {
+                $("#searchForm2").submit();
             });
         </script>
 
