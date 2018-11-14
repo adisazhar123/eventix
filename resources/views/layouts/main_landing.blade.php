@@ -79,7 +79,8 @@
                             <div class="col-lg-2 col-sm-3 col-3 order-1 mb-4">
                                 <div class="logo_container">
                                     <div class="logo"><a href="{{url('/')}}">
-                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="80px">
+                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="120px" class="d-none d-sm-block">
+                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="60px" class="d-block d-sm-none">
                                     </a></div>
                                 </div>
                             </div>
