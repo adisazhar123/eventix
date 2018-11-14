@@ -13,7 +13,7 @@ class CinemaController extends Controller
 	public function index(){
 		$schedules = Schedule::orderBy('id_cinema')->get();
 		$cinemas = Cinema::select('id', 'name')->orderBy('name')->get();
-		$films = Film::select('id', 'name')->orderBy('name')->get();
+		$films = Film::select('id', 'name')->where('status',1)->orderBy('name')->get();
 		return view('cinema.dashboard',compact('schedules','cinemas','films'));
 	}
 

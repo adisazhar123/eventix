@@ -15,8 +15,10 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_cinema');
-            $table->integer('id_film');
+            $table->integer('id_cinema')->unsigned();
+            $table->foreign('id_cinema')->references('id')->on('cinemas')->onDelete('cascade');
+            $table->integer('id_film')->unsigned();
+            $table->foreign('id_film')->references('id')->on('films')->onDelete('cascade');
             $table->string('jam1',181)->default("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
             $table->string('jam2',181)->default("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
             $table->string('jam3',181)->default("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");

@@ -21,6 +21,7 @@
               <th>Cinema</th>
               <th>Time</th>
               <th>Total Price</th>
+              <th>E-Ticket</th>
             </thead>
             <tbody>
               @foreach($tickets as $ticket)
@@ -29,6 +30,7 @@
                   <td class="text-capitalize">{{$ticket->cinema->name}}</td>
                   <td>{{date('Y M d', strtotime($ticket->created_at))}}</td>
                   <td>{{number_format($ticket->total, 2)}}</td>
+                  <td><a href="{{url('user/tickets-movie', $ticket->id)}}" target="_blank" name="button" class="btn btn-info">View</a></td>
                 </tr>
               @endforeach
             </tbody>

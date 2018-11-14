@@ -167,4 +167,11 @@ class UserController extends Controller
 			'id' => $id]);
 		}
 
+		public function getTicketMovie($id){
+			$orders = OrderMovie::where('id', $id)->get();
+			// return $orders;
+			return view('user.e-ticket-movie', ['orders' => $orders,
+			'id' => $id]);
+		}
+
 }

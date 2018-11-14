@@ -107,6 +107,8 @@
 						            	</div>
 						      		</form>
 								</div>
+								@else
+								<button type="button" class="button cart_button" data-toggle="modal" data-target="#modalCinema"><i class="fas fa-play"></i> Book Now</button>
 								@endif
 								@endguest
 							</div>

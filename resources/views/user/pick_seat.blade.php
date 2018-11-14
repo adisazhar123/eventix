@@ -227,6 +227,9 @@
 						data[$(this).attr("data-num")]="0";
 						total-=Number(harga);
 					}
+					if (total<0) {
+						total=0;
+					}
 					$("#temp-price").text("Rp."+total);
 				}
 			});
@@ -257,7 +260,7 @@
 		          	dataType: 'JSON',
 		          	success: data => {
 		              	if (data.message == "success") {
-		              		swal("Ticket purchased succefully! thank you.",{
+		              		swal("Ticket purchased succefully! thank you.\nPembayaran dapat dilakukan kepada .....",{
 								closeOnClickOutside: false,
 		              		}).then(function() {
 								window.location = '{{url("user/booked-movies")}}';

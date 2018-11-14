@@ -61,7 +61,7 @@
                             <div class="col-lg-2 col-sm-3 col-3 order-1 mb-4">
                                 <div class="logo_container">
                                     <div class="logo"><a href="{{url('/')}}">
-                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="170px">
+                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="150px">
                                     </a></div>
                                 </div>
                             </div>
