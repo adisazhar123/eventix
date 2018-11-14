@@ -288,7 +288,9 @@
 
 @media only screen and (max-width: 959px)
 {
-
+	.logoo{
+		width: 5px;
+	}
 }
 
 /************

@@ -33,7 +33,7 @@
         <div class="navbar navbar-inverse bg-indigo">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{{url('/')}}">
-                  <img src="{{asset('images/logo-eventix.png')}}" alt="" width="130px">
+                  <img src="{{asset('images/logo-eventix.png')}}" alt="" width="100%">
                 </a>
                 <ul class="nav navbar-nav visible-xs-block">
                     <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
