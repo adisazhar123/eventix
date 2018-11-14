@@ -17,6 +17,7 @@ Route::get('/events', 'MainController@eventPage');
 Route::get('/events/{id}', 'MainController@single_ticket');
 Route::get('/movies', 'MainController@moviePage');
 Route::get('/search/l', 'MainController@catSearch');
+Route::get('/search/e', 'MainController@searchByDate');
 Route::get('/movies/{id}/{name}', 'MainController@moviePageSingle');
 Route::get('/search/movies/{category}', 'MainController@categoryMovie');
 Route::get('sports', 'MainController@sportPage');

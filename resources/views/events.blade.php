@@ -81,10 +81,22 @@
 							<strong>Find by date</strong>
 						</p>
 					<div class="custom_date" style="display: none">
+						<form action="{{url('/search/e')}}" method="GET" id="searchForms">
 						<div class="form-group">
-							<input required="" id="date1" type="text" class="form-control mb-1" placeholder="Start date" onfocus="(this.type='date')" onchange="checkDate"/>
-							<input required="" id="date2" type="text" class="form-control" placeholder="End date" onfocus="(this.type='date')" onchange="checkDate"/>
+							<input required id="date1" name="start_date" type="text" class="form-control mb-1" placeholder="Start date" onfocus="(this.type='date')"/>
+							<input required id="date2" name="end_date" type="text" class="form-control" placeholder="End date" onfocus="(this.type='date')"/>
+							<select class="form-control select-category mb-2" name="categories" required>
+								<option value="" disabled selected>Categories</option>
+								<option value="Concert">Concert</option>
+								<option value="Events">Events</option>
+								<option value="Exhibition">Exhibition</option>
+								<option value="Sports">Sports</option>
+								<option value="Workshop">Workshop</option>
+							</select>
 						</div>
+						<button type="submit" class="btn btn-block btn-primary" id="searchEvents">Search</button>
+						<br>
+						</form>
 					</div>
 
 					<div class="shop_content">
@@ -145,34 +157,32 @@
 	<script src="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.js')}}"></script>
 	<script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
 	<script src="{{asset('js/shop_custom.js')}}"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script type="text/javascript">
 		var flag = true;
 		$(".find-by-date").click(function(){
 			if (flag) {
-				$(".custom_date").fadeIn(2000);
+				$(".custom_date").fadeIn(1000);
 				flag = false;
 			}else{
-				$(".custom_date").fadeOut(1000);
+				$(".custom_date").fadeOut(500);
 				flag = true;
 			}
 		});
 
-		function checkDate(){
+
+        $("#searchEvents").click(function() {
 			const date1 = $("#date1").val();
 			const date2 = $("#date2").val();
 			// date1 is start date
 			// date2 is end date
 			if (date1 > date2) {
-				alert("Start date must be before end date!");
-	      return false;
+				swal("the start date must be before the end date",{
+
+				});
+			    return false;
 			}
-
-			searchEvents();
-
-		}
-
-		function searchEvents(type, date1, date2){
-
-		}
+	        $("#searchForms").submit();
+		});
 	</script>
 @endsection

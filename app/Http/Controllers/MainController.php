@@ -30,7 +30,8 @@ class MainController extends Controller
 	public function catSearch(Request $request){
 		if ($request->categories=="Cinemas") {
 			$films = Film::where('name', 'like', '%'.$request->keyword.'%')->orderBy('name')->paginate(10);
-	        return view('movies', compact('films'));
+			$filmsc = Film::where('status', 2)->get();
+	        return view('movies', compact('films','filmsc'));
 		}
 		elseif ($request->categories=="Concert") {
 			$events = Event::where('approved', 1)->where('sport_type', '=', null)->where('deleted', 0)->where('type', 'Concert')->where('name', 'like', '%'.$request->keyword.'%')->paginate(10);
@@ -44,7 +45,14 @@ class MainController extends Controller
 
 	// search range date
 	public function searchByDate(Request $request){
-
+		$events = Event::where('approved', 1)
+		->where('deleted', 0)
+		->where('type', $request->categories)
+      	->where(function($q) use ($request) {
+			$q->whereBetween('date1', [date($request->start_date).' 00:00:00', date($request->end_date).' 00:00:00'])
+			->orwhereBetween('date2', [date($request->start_date).' 00:00:00', date($request->end_date).' 00:00:00']);
+      	})->paginate(10);
+		return view('events', ['events' => $events]);		
 	}
 
 	public function eventPage(){
@@ -66,7 +74,8 @@ class MainController extends Controller
 
 	public function categoryMovie($category){
 		$films = Film::orderBy('name')->where('genre',$category)->paginate(10);
-        return view('movies', compact('films'));
+		$filmsc = Film::where('status', 2)->get();
+        return view('movies', compact('films','filmsc'));
 	}
 
 	public function sportPage(){
