@@ -206,7 +206,7 @@
                                     </div>
                                     <ul class="page_menu_nav">
                                       <li class="page_menu_item">
-                                        <a href="#">Home<i class="fa fa-angle-down"></i></a>
+                                        <a href="{{url('/')}}">Home<i class="fa fa-angle-down"></i></a>
                                       </li>
 
                                       @guest
