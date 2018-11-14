@@ -20,10 +20,9 @@
             </div>
             <div class="footer_social">
               <ul>
-                <li><a href="http://facebook.com"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="http://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="http://youtube.com/"><i class="fab fa-youtube"></i></a></li>
-                <li><a href="http://google.com/"><i class="fab fa-google"></i></a></li>
+                <li><a href="https://www.facebook.com/even.tix.7" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://twitter.com/even_tix" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/eventix_/" target="_blank"><i class="fab fa-instagram"></i></a></li>
               </ul>
             </div>
           </div>

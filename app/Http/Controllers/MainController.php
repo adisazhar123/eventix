@@ -8,15 +8,19 @@ use App\Film;
 use App\Cinema;
 use App\Schedule;
 use App\User;
+use Carbon\Carbon;
 
 class MainController extends Controller
 {
 	public function index(){
+		// find events with ending date further than today
+		$date_now = date('Y-m-d', time());
 		$films = Film::take(5)->get();
-		$events = Event::where('approved', 1)->where('deleted', 0)->where('sport_type', '=', null)->take(10)->get();
-		$sports = Event::where('approved', 1)->where('deleted', 0)->where('sport_type', '!=', null)->take(10)->get();
-        return view('welcome', compact('films','sports', 'events'));
+		$events = Event::where('approved', 1)->where('deleted', 0)->whereDate('date2', '>=', $date_now)->where('sport_type', '=', null)->take(10)->get();
+		$sports = Event::where('approved', 1)->where('deleted', 0)->whereDate('date2', '>=', $date_now)->where('sport_type', '!=', null)->take(10)->get();
+    return view('welcome', compact('films','sports', 'events'));
 	}
+
 
 	public function single_ticket($id){
 		$event = Event::find($id);
