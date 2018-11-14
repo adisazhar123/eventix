@@ -14,15 +14,16 @@
     <div class="container fill_height">
       <div class="row fill_height">
         <div class="banner_product_image">
-{{--           <img src="{{('images/banner_product.png')}}" alt=""> --}}
+
+
         </div>
         <div class="col-lg-6 offset-lg-3 fill_height">
           <div class="banner_content">
             <h1 class="banner_text">The Best Place to Find your Obsession</h1>
             <div><br><br></div>
             <div class="d-none d-sm-block"><br><br><br></div>
-{{--             <div class="banner_price"><span>$530</span>$460</div>
-            <div class="banner_product_name">Cinema, Events, Sports</div> --}}
+
+
             <div class="button banner_button"><a href="#categories">Get My Tickets</a></div>
           </div>
         </div>
@@ -107,7 +108,7 @@
                   <div class="deals_content">
                     <div class="deals_info_line d-flex flex-row justify-content-start">
                       <div class="deals_item_category text-capitalize">{{$sports[0]->type}}</div>
-                      {{-- <div class="deals_item_price_a ml-auto">{{number_format($sports[0]->price,0,',','.')}}</div> --}}
+
                     </div>
                     <div class="deals_info_line d-flex flex-row justify-content-start">
                       <div class="deals_item_name">{{$sports[0]->name}}</div>
@@ -327,7 +328,7 @@
                   <div class="trends_content">
                     <div class="trends_category"><a href="" style="cursor: default;" class="text-capitalize">By :&nbsp;{{$film->director}}</a></div>
                     <div class="trends_info clearfix">
-{{--                       <div class="trends_name"><a href="#">{{$film->name}}</a></div> --}}
+
                       <div class="trends_price"><a href="{{url('movies')}}"><i class="fab fa-youtube"></i> Get ticket</a></div>
                     </div>
                   </div>

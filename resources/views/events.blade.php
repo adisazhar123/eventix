@@ -3,6 +3,7 @@
 @extends('layouts.main_landing')
 
 @section('style')
+	<link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('styles/shop_styles.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('styles/shop_responsive.css')}}">
@@ -73,9 +74,8 @@
 				</div>
 
 				<div class="col-lg-9">
-					{{-- <div class="form-group">
-						<input type="date" class="form-control" name="" value="">
-					</div> --}}
+
+
 					<!-- Shop Content -->
 						<p class="find-by-date">
 							<strong>Find by date</strong>
@@ -102,18 +102,7 @@
 					<div class="shop_content">
 						<div class="shop_bar clearfix">
 							<div class="shop_product_count"><span>{{$events->count()}}</span> results found</div>
-							{{-- <div class="shop_sorting">
-								<span>Sort by:</span>
-								<ul>
-									<li>
-										<span class="sorting_text">name<i class="fas fa-chevron-down"></span></i>
-										<ul>
-											<li class="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }'>name</li>
-											<li class="shop_sorting_button"data-isotope-option='{ "sortBy": "price" }'>price</li>
-										</ul>
-									</li>
-								</ul>
-							</div> --}}
+
 						</div>
 
 						<div class="product_grid">
@@ -153,6 +142,9 @@
 @endsection
 
 @section('script')
+	<script src="{{asset('plugins/slick-1.8.0/slick.js')}}"></script>
+	{{-- <script src="{{asset('js/custom.js')}}"></script> --}}
+
 	<script src="{{asset('plugins/Isotope/isotope.pkgd.min.js')}}"></script>
 	<script src="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.js')}}"></script>
 	<script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>

@@ -60,7 +60,7 @@
                             <div class="col-lg-2 col-sm-3 col-3 order-1 mb-4">
                                 <div class="logo_container">
                                     <div class="logo"><a href="{{url('/')}}">
-                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="130px" class="d-none d-sm-block">
+                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="130px" class="d-sm-block">
                                     </a></div>
                                 </div>
                             </div>
@@ -167,25 +167,6 @@
                                         </ul>
                                     </div>
 
-
-                                    {{-- <div class="user_icon"><img src="{{asset('images/user.svg')}}" alt=""></div>
-                                    @guest
-                                    <div><a href="{{ route('register') }}">Register</a></div>
-                                    <div><a href="{{ route('login') }}">Sign in</a></div>
-                                    @else
-                                        @if(Auth::user()->role==3)
-                                            <div><a href="{{ url('user') }}">Dashboard</a></div>
-                                        @elseif(Auth::user()->role==1)
-                                            <div><a href="{{ url('admin') }}">Dashboard</a></div>
-                                        @elseif(Auth::user()->role==2)
-                                            <div><a href="{{ url('xxi') }}">Dashboard</a></div>
-                                        @endif
-                                    <div><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> </div>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    @endguest --}}
-
                                     <!-- Menu Trigger -->
 
                                     <div class="menu_trigger_container ml-auto">
@@ -223,6 +204,38 @@
                                             <button type="button" class="other2" id="mobile-search-btn"><img src="{{asset('images/search.png')}}" alt=""></button>
                                         </form>
                                     </div>
+                                    <ul class="page_menu_nav">
+                                      <li class="page_menu_item">
+                                        <a href="#">Home<i class="fa fa-angle-down"></i></a>
+                                      </li>
+
+                                      @guest
+                                        <li class="page_menu_item">
+                                          <a href="{{ route('register') }}">Register<i class="fa fa-angle-down"></i></a>
+                                        </li>
+                                        <li class="page_menu_item">
+                                          <a href="{{ route('login') }}">Sign in<i class="fa fa-angle-down"></i></a>
+                                        </li>
+                                      @else
+                                        @if(Auth::user()->role==3)
+                                          <li class="page_menu_item">
+                                            <a href="{{ url('user') }}">Dashboard<i class="fa fa-angle-down"></i></a>
+                                          </li>
+                                        @elseif(Auth::user()->role==1)
+                                          <li class="page_menu_item">
+                                            <a href="{{ url('admin') }}">Dashboard<i class="fa fa-angle-down"></i></a>
+                                          </li>
+                                        @elseif(Auth::user()->role==2)
+                                          <li class="page_menu_item">
+                                            <a href="{{ url('xxi') }}">Dashboard<i class="fa fa-angle-down"></i></a>
+                                          </li>
+                                      @endif
+                                      <li class="page_menu_item">
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout<i class="fa fa-angle-down"></i></a>
+                                      </li>
+                                      @endguest
+
+                                    </ul>
                                 </div>
                             </div>
                         </div>
