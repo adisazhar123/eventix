@@ -1,6 +1,6 @@
 @extends('layouts.main_landing')
 
-@section('title','The best place to get tickets!')
+@section('title','Home!')
 
 @section('style')
   <link rel="stylesheet" type="text/css" href="{{asset('plugins/slick-1.8.0/slick.css')}}">
@@ -18,7 +18,7 @@
         </div>
         <div class="col-lg-6 offset-lg-3 fill_height">
           <div class="banner_content">
-            <h1 class="banner_text">The best place to get tickets</h1>
+            <h1 class="banner_text">The Best Place to Find your Obsession</h1>
             <div><br><br></div>
             <div class="d-none d-sm-block"><br><br><br></div>
 {{--             <div class="banner_price"><span>$530</span>$460</div>

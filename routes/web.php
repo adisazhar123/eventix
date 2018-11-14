@@ -34,7 +34,7 @@ Route::group(['middleware' => ['user_only']], function(){
 	  	Route::post('book/pick_seat/submit', 'UserController@bookMovieSubmit')->name('book.movie');
 			Route::post('tickets', 'UserController@orderEvent');
 			Route::get('tickets', 'UserController@getOrderedEvents');
-			Route::get('tickets/{id}', 'UserController@getTicket');
+			Route::get('tickets/{id}', 'UserController@getTicket');			
 	});
 });
 

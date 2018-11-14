@@ -26,6 +26,7 @@ class CreateEventTable extends Migration
             $table->decimal('price', 10, 2);
             $table->integer('approved')->default(0);
             $table->unsignedInteger('owner');
+            $table->integer('deleted')->default(0);
         });
     }
 

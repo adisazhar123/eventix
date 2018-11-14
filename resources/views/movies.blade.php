@@ -1,6 +1,6 @@
 @extends('layouts.main_landing')
 
-@section('title','Movies list')
+@section('title','Playing Movies')
 
 @section('style')
 	<link rel="stylesheet" type="text/css" href="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.css')}}">

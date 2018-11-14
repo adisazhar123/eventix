@@ -130,6 +130,11 @@
 
 @media only screen and (max-width: 991px)
 {
+	.header_main {
+    z-index: 1;
+    padding-top: 30px;
+	}
+
 	.top_bar
 	{
 		/*display: none;*/
@@ -310,6 +315,16 @@
 
 @media only screen and (max-width: 767px)
 {
+
+	.page_menu{
+		display: block !important;
+	}
+
+	.header_main {
+    z-index: 1;
+    padding-top: 30px;
+	}
+
 	.header_search
 	{
 		display: none;
@@ -394,6 +409,9 @@
 	.logo a
 	{
 		font-size: 24px;
+	}
+	.logo img{
+		width: 130px;
 	}
 	.cat_menu_container
 	{

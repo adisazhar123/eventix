@@ -138,7 +138,7 @@
         { data: "approved",
             render: function(data, type, row){
                 if (data == 1) {
-                  return '<button type="button" name="button" class="btn btn-danger" disabled>Delete</button>'+
+                  return '<button type="button" name="button" event-id='+row.id+' class="btn btn-danger delete">Delete</button>'+
                   '<a type="button" href="{{url('events')}}/'+row.id+'" name="button" target="_blank" class="btn btn-info">View</a>';
                 }else{
                   return '<button type="button" event-id='+row.id+' name="button" class="btn btn-danger delete">Delete</button>' +

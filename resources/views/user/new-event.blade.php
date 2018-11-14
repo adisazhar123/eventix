@@ -139,7 +139,6 @@ $(document).ready(function(){
       alert("Start date must be before end date!");
       return false;
     }
-
   });
 
   $("select").change(function(){

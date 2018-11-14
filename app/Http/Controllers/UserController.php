@@ -20,7 +20,7 @@ class UserController extends Controller
 
 	// get events of user that has been approved/ pending by admin
 	public function getEvents(){
-		$events = Event::where('owner', Auth::user()->id)->get();
+		$events = Event::where('owner', Auth::user()->id)->where('deleted', 0)->get();
 		return response()->json(['data' => $events]);
 	}
 
@@ -70,11 +70,17 @@ class UserController extends Controller
 	}
 	// delete event that is still pending
 	public function deleteEvent($id){
+
 		try {
 			$event = Event::find($id);
 			// check if event is owned by user
 			if ($event->owner == Auth::user()->id) {
-				$event->delete();
+				if ($event->approved == 1|| $event->approved == -1) {
+					$event->deleted = 1;
+					$event->save();
+				}else {
+					$event->delete();
+				}
 			}else{ //not owned by user
 				return response()->json(['message' => 'unauthorised'], 401);
 			}

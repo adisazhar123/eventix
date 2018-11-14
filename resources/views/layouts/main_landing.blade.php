@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/animate.css')}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/favicon.ico')}}" />
         <style media="screen">
           .form-control{
             color: black !important;
@@ -36,6 +37,7 @@
           #mobile-search-btn:hover{
             cursor: pointer;
           }
+
         </style>
 
         @yield('style')
@@ -47,7 +49,56 @@
                 <div class="">
                     <div class="container">
                         <div class="row">
-                            <div class="col d-flex flex-row">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="header_main">
+                    <div class="container">
+                        <div class="row">
+
+
+                            <div class="col-lg-2 col-sm-3 col-3 order-1 mb-4">
+                                <div class="logo_container">
+                                    <div class="logo"><a href="{{url('/')}}">
+                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="170px">
+                                    </a></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+                                <div class="header_search">
+                                    <div class="header_search_content">
+                                        <div class="header_search_form_container">
+                                            <form action="{{url('search/l')}}" class="header_search_form clearfix" method="get" autocomplete="off" id="searchForm">
+                                                <input type="search" required class="header_search_input" placeholder="Search for events, tickets, etc.." name="keyword">
+                                                <div class="custom_dropdown mb-2">
+                                                    <div class="custom_dropdown_list">
+                                                        <span class="custom_dropdown_placeholder clc">Categories</span>
+                                                        <i class="fas fa-chevron-down"></i>
+
+                                                        <ul class="custom_list clc" id="ulIl">
+                                                            <li id="Cinemas"><a class="clc" href="#">Cinemas</a></li>
+                                                            <li id="Concert"><a class="clc" href="#">Concert</a></li>
+                                                            <li id="Exhibition"><a class="clc" href="#">Exhibition</a></li>
+                                                            <li id="Seminar"><a class="clc" href="#">Seminar</a></li>
+                                                            <li id="Workshop"><a class="clc" href="#">Workshop</a></li>
+                                                            <li id="Sports"><a class="clc" href="#">Sports</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <input type="hidden" name="categories" id="liIn">
+                                                <button type="button" id="other" class="header_search_button trans_300" value="Submit"><img src="{{asset('images/search.png')}}" alt=""></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            {{-- <div class="col d-flex flex-row">
                                 <div class="top_bar_content ml-auto">
                                     <div class="top_bar_user">
                                         <div class="user_icon"><img src="{{asset('images/user.svg')}}" alt=""></div>
@@ -69,44 +120,8 @@
                                         @endguest
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="header_main">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-2 col-sm-3 col-3 order-1 mb-4">
-                                <div class="logo_container">
-                                    <div class="logo"><a href="{{url('/')}}">
-                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="130px">
-                                    </a></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
-                                <div class="header_search">
-                                    <div class="header_search_content">
-                                        <div class="header_search_form_container">
-                                            <form action="{{url('search/l')}}" class="header_search_form clearfix" method="get" autocomplete="off" id="searchForm">
-                                                <input type="search" required class="header_search_input" placeholder="Search for events, tickets, etc.." name="keyword">
-                                                <div class="custom_dropdown">
-                                                    <div class="custom_dropdown_list">
-                                                        <span class="custom_dropdown_placeholder clc">Categories</span>
-                                                        <i class="fas fa-chevron-down"></i>
-                                                        <ul class="custom_list clc" id="ulIl">
-                                                            <li id="Cinemas"><a class="clc" href="#">Cinemas</a></li>
-                                                            <li id="Events"><a class="clc" href="#">Events</a></li>
-                                                            <li id="Sports"><a class="clc" href="#">Sports</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <input type="hidden" name="categories" id="liIn">
-                                                <button type="button" id="other" class="header_search_button trans_300" value="Submit"><img src="{{asset('images/search.png')}}" alt=""></button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> --}}
+
                         </div>
                     </div>
                 </div>
@@ -122,8 +137,55 @@
                                     <div class="main_nav_menu ml-auto">
                                         <ul class="standard_dropdown main_nav_dropdown">
                                             <li><a href="{{url('/')}}">Home<i class="fas fa-chevron-down"></i></a></li>
+                                            @guest
+                                              <li>
+                                                <a href="{{ route('register') }}">Register</a>
+                                              </li>
+
+                                              <li>
+                                                <a href="{{ route('login') }}">Sign in</a>
+                                              </li>
+
+                                            @else
+                                              @if(Auth::user()->role==3)
+                                                <li>
+                                                  <a href="{{ url('user') }}">Dashboard</a>
+                                                </li>
+                                              @elseif(Auth::user()->role==1)
+                                                <li>
+                                                  <a href="{{ url('admin') }}">Dashboard</a>
+                                                </li>
+                                              @elseif(Auth::user()->role==2)
+                                                <li>
+                                                  <a href="{{ url('xxi') }}">Dashboard</a>
+                                                </li>
+                                            @endif
+                                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> </li>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            @endguest
                                         </ul>
                                     </div>
+
+
+                                    {{-- <div class="user_icon"><img src="{{asset('images/user.svg')}}" alt=""></div>
+                                    @guest
+                                    <div><a href="{{ route('register') }}">Register</a></div>
+                                    <div><a href="{{ route('login') }}">Sign in</a></div>
+                                    @else
+                                        @if(Auth::user()->role==3)
+                                            <div><a href="{{ url('user') }}">Dashboard</a></div>
+                                        @elseif(Auth::user()->role==1)
+                                            <div><a href="{{ url('admin') }}">Dashboard</a></div>
+                                        @elseif(Auth::user()->role==2)
+                                            <div><a href="{{ url('xxi') }}">Dashboard</a></div>
+                                        @endif
+                                    <div><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> </div>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    @endguest --}}
 
                                     <!-- Menu Trigger -->
 
@@ -142,7 +204,7 @@
                     </div>
                 </nav>
                 <!-- Menu -->
-                <div class="page_menu">
+                <div class="page_menu" style="display: none">
                     <div class="container">
                         <div class="row">
                             <div class="col mb-3">

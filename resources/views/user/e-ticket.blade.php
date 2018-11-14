@@ -152,6 +152,7 @@
           <span>Total Paid </span> <br>
           <span> Rp{{number_format($orders->count() * $orders[0]->event->price,2,',','.')}}</span>
         </section>
+        <img id="barcode" src="{{asset('images/barcode.png')}}" alt="" height="120px" width="200px">
 
       </footer>
     </article>

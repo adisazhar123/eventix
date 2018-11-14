@@ -1,3 +1,5 @@
+@section('title','Active Events')
+
 @extends('layouts.main_landing')
 
 @section('style')
@@ -9,6 +11,17 @@
 			text-decoration: none;
 			color: black;
 		}
+
+
+    .custom_date input{
+      background-color: #fcfcfc;
+      color: #7f7f7f;
+    }
+
+		.find-by-date:hover{
+			cursor: pointer;
+		}
+
 	</style>
 @endsection
 
@@ -64,6 +77,15 @@
 						<input type="date" class="form-control" name="" value="">
 					</div> --}}
 					<!-- Shop Content -->
+						<p class="find-by-date">
+							<strong>Find by date</strong>
+						</p>
+					<div class="custom_date" style="display: none">
+						<div class="form-group">
+							<input required="" id="date1" type="text" class="form-control mb-1" placeholder="Start date" onfocus="(this.type='date')" onchange="checkDate"/>
+							<input required="" id="date2" type="text" class="form-control" placeholder="End date" onfocus="(this.type='date')" onchange="checkDate"/>
+						</div>
+					</div>
 
 					<div class="shop_content">
 						<div class="shop_bar clearfix">
@@ -114,6 +136,8 @@
 		</div>
 	</div>
 
+	<input type="hidden" id="event_type" name="" value="">
+
 @endsection
 
 @section('script')
@@ -121,4 +145,34 @@
 	<script src="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.js')}}"></script>
 	<script src="{{asset('plugins/parallax-js-master/parallax.min.js')}}"></script>
 	<script src="{{asset('js/shop_custom.js')}}"></script>
+	<script type="text/javascript">
+		var flag = true;
+		$(".find-by-date").click(function(){
+			if (flag) {
+				$(".custom_date").fadeIn(2000);
+				flag = false;
+			}else{
+				$(".custom_date").fadeOut(1000);
+				flag = true;
+			}
+		});
+
+		function checkDate(){
+			const date1 = $("#date1").val();
+			const date2 = $("#date2").val();
+			// date1 is start date
+			// date2 is end date
+			if (date1 > date2) {
+				alert("Start date must be before end date!");
+	      return false;
+			}
+
+			searchEvents();
+
+		}
+
+		function searchEvents(type, date1, date2){
+
+		}
+	</script>
 @endsection
