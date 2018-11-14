@@ -53,8 +53,9 @@ class MainController extends Controller
 	}
 
 	public function moviePage(){
-		$films = Film::orderBy('name')->paginate(10);
-        return view('movies', compact('films'));
+		$films = Film::orderBy('name')->where('status', 1)->paginate(10);
+		$filmsc = Film::where('status', 2)->get();
+        return view('movies', compact('films','filmsc'));
 	}
 
 	public function moviePageSingle($id){

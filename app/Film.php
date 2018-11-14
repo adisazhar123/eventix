@@ -8,7 +8,7 @@ class Film extends Model
 {
   protected $guarded = [''];
   protected $fillable = [
-      'id', 'name', 'genre', 'duration', 'director', 'description'
+      'id', 'name', 'genre', 'duration', 'director', 'description', 'status'
   ];
   protected $table = 'films';
 

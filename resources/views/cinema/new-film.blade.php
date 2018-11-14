@@ -59,6 +59,13 @@
               </select>
             </div>
             <div class="form-group">
+              <label for="event-name">Film status</label>
+              <select class="form-control" required name="film_status">
+                <option value="1">Now Playing</option>
+                <option value="2">Coming Soon</option>
+              </select>
+            </div>
+            <div class="form-group">
               <label for="event-name">Description</label>
               <textarea class="form-control" required name="film_description"></textarea>
               <p class="help-block">The description?</p>

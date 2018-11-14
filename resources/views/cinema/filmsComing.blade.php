@@ -7,8 +7,7 @@
 @endsection
 
 @section('header')
-  <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Now Playing Films</span> - These are the list of films!
-    <a class="btn btn-primary" href="{{url('xxi/new/film')}}" role="button" style="float: right">New Film</a>
+  <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Coming Soon Films</span> - These are the list of films!
   </h4>
 @endsection
 
@@ -16,9 +15,9 @@
 <div class="containers">
 	@foreach ($films as $film)
 	@php
-	$file=explode("/",$film->picture->location);
 	$name = str_replace(' ', '', $film->name);
 	$name = preg_replace("/[^A-Za-z0-9 ]/", '', $name);
+	$file=explode("/",$film->picture->location);
 	@endphp
 
 	<div class="movie-card">
@@ -63,7 +62,7 @@
     $("#new-film").click(function(){
       $("#new-film-modal").modal('show');
     });
-    $("#nav-film").addClass("active");
+    $("#nav-films").addClass("active");
   });
 </script>
 @endsection
