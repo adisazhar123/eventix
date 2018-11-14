@@ -96,6 +96,32 @@
       <div class="row">
         <div class="col d-flex flex-lg-row flex-column align-items-center justify-content-start">
           <!-- Deals -->
+          <div class="deals">
+            <div class="deals_title">Deals of the Month</div>
+            <div class="deals_slider_container">
+              <!-- Deals Slider -->
+              <div class="owl-carousel owl-theme deals_slider">
+                <!-- Deals Item -->
+                <div class="owl-item deals_item">
+                  <div class="deals_image"><img src="{{asset('storage') ."/". $sports[0]->pictures[0]->location}}" alt=""></div>
+                  <div class="deals_content">
+                    <div class="deals_info_line d-flex flex-row justify-content-start">
+                      <div class="deals_item_category text-capitalize">{{$sports[0]->type}}</div>
+                      {{-- <div class="deals_item_price_a ml-auto">{{number_format($sports[0]->price,0,',','.')}}</div> --}}
+                    </div>
+                    <div class="deals_info_line d-flex flex-row justify-content-start">
+                      <div class="deals_item_name">{{$sports[0]->name}}</div>
+                      <div class="deals_item_price ml-auto">{{number_format($sports[0]->price,0,',','.')}}</div>
+                    </div>
+                    <div class="available">
+                      <div class="available_line d-flex flex-row justify-content-start">
+                        <div class="available_title">Quota: <span>{{$sports[0]->quota}}</span></div>
+                      </div>
+                      <div class="available_bar"><span style="width:17%"></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
             </div>
 
@@ -237,6 +263,25 @@
                 </div>
               </div>
 
+              <div class="col-lg-3">
+                <div class="arrivals_single clearfix">
+                  <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div class="arrivals_single_image"><img src="{{asset('storage') ."/". $events[0]->pictures[0]->location}}" alt=""></div>
+                    <div class="arrivals_single_content">
+                      <div class="arrivals_single_category text-capitalize">{{$events[0]->type}}</div>
+                      <div class="arrivals_single_name_container clearfix">
+                        <div class="arrivals_single_name text-capitalize" >{{$events[0]->name}}</div>
+                        <div class="arrivals_single_price text-right">Rp. {{number_format($events[0]->price,2,',','.')}}</div>
+                      </div>
+                      <a class="btn arrivals_single_button" role="button" style="color: white;" href="{{url('events') . "/" . $events[0]->id}}">View</a>
+                    </div>
+                    <div class="arrivals_single_fav product_fav active"><i class="fas fa-heart"></i></div>
+                    <ul class="arrivals_single_marks product_marks">
+                      <li class="arrivals_single_mark product_mark product_new">new</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
             </div>
 

@@ -50,23 +50,6 @@
                             <div class="col d-flex flex-row">
                                 <div class="top_bar_content ml-auto">
                                     <div class="top_bar_user">
-                                        <div class="user_icon"><img src="{{asset('images/user.svg')}}" alt=""></div>
-                                        @guest
-                                        <div><a href="{{ route('register') }}">Register</a></div>
-                                        <div><a href="{{ route('login') }}">Sign in</a></div>
-                                        @else
-                                            @if(Auth::user()->role==3)
-                                                <div><a href="{{ url('user') }}">Dashboard</a></div>
-                                            @elseif(Auth::user()->role==1)
-                                                <div><a href="{{ url('admin') }}">Dashboard</a></div>
-                                            @elseif(Auth::user()->role==2)
-                                                <div><a href="{{ url('xxi') }}">Dashboard</a></div>
-                                            @endif
-                                        <div><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a> </div>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                @csrf
-                                            </form>
-                                        @endguest
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +67,7 @@
                                     </a></div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+                            <div class="col-lg-6 col-12 order-lg-2 order-2 text-lg-left text-right">
                                 <div class="header_search">
                                     <div class="header_search_content">
                                         <div class="header_search_form_container">
@@ -106,6 +89,40 @@
                                             </form>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 order-3">
+                                <div class="row justify-content-center align-items-center">
+                                        @guest
+                                        <div class="col" align="right">
+                                            <div class="user_icon">
+                                                <img src="{{asset('images/user.svg')}}" alt="">
+                                            </div>
+                                            <a href="{{ route('register') }}">Register</a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="{{ route('login') }}">Sign in</a>
+                                        </div>
+                                        @else
+                                            <div class="col" align="right">
+                                                <div class="user_icon">
+                                                    <img src="{{asset('images/user.svg')}}" alt="">
+                                                </div>
+                                                @if(Auth::user()->role==3)
+                                                    <a href="{{ url('user') }}">Dashboard</a>
+                                                @elseif(Auth::user()->role==1)
+                                                    <a href="{{ url('admin') }}">Dashboard</a>
+                                                @elseif(Auth::user()->role==2)
+                                                    <a href="{{ url('xxi') }}">Dashboard</a>
+                                                @endif
+                                            </div>
+                                        <div class="col">
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                        </div>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        @endguest
                                 </div>
                             </div>
                         </div>

@@ -39,7 +39,7 @@
 						<div class="intro intro--shown">
 							<div class="intro__side">
 								<h2 class="intro__title">
-									<span class="intro__up">{{$seat[0]->cinema->name}}, Eventix</span>
+									<span class="intro__up">{{$seat[0]->cinema->name}}, EvenTix</span>
 									<span class="intro__down">{{$film->name}}<span class="intro__partial"></span></span>
 								</h2>
 							</div>
