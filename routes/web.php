@@ -35,8 +35,8 @@ Route::group(['middleware' => ['user_only']], function(){
 	  	Route::post('book/pick_seat/submit', 'UserController@bookMovieSubmit')->name('book.movie');
 			Route::post('tickets', 'UserController@orderEvent');
 			Route::get('tickets', 'UserController@getOrderedEvents');
-			Route::get('tickets/{id}', 'UserController@getTicket');			
-			Route::get('tickets-movie/{id}', 'UserController@getTicketMovie');			
+			Route::get('tickets/{id}', 'UserController@getTicket');
+			Route::get('tickets-movie/{id}', 'UserController@getTicketMovie');
 	});
 });
 
@@ -52,16 +52,15 @@ Route::group(['middleware' => ['admin_only']], function(){
 Route::group(['middleware' => ['xxi_only']], function(){
 	Route::prefix('xxi')->group(function(){
 		Route::get('/', 'CinemaController@index');
-	  	Route::get('/new/film', 'CinemaController@newFilmPage');
+  	Route::get('/new/film', 'CinemaController@newFilmPage');
 		Route::get('/cinema', 'CinemaController@listCinemas');
 		Route::get('/film', 'CinemaController@listFilms');
 		Route::get('/film-coming', 'CinemaController@listFilmsComing');
-	  	Route::post('films', 'CinemaController@storeFilm');
-	  	Route::post('change-status', 'CinemaController@changeStatus');
-	  	Route::post('delete', 'CinemaController@deleteFilm');
-	  	Route::post('schedules', 'CinemaController@storeSchedule');
+  	Route::post('films', 'CinemaController@storeFilm');
+  	Route::post('change-status', 'CinemaController@changeStatus');
+  	Route::post('delete', 'CinemaController@deleteFilm');
+  	Route::post('schedules', 'CinemaController@storeSchedule');
 	});
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
