@@ -260,7 +260,7 @@
 		          	dataType: 'JSON',
 		          	success: data => {
 		              	if (data.message == "success") {
-		              		swal("Ticket purchased succefully! thank you.\nPembayaran dapat dilakukan kepada .....",{
+		              		swal("Ticket purchased succefully! thank you.\nPlease confirm payment on BNI 033444175521",{
 								closeOnClickOutside: false,
 		              		}).then(function() {
 								window.location = '{{url("user/booked-movies")}}';

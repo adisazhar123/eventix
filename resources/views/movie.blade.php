@@ -70,7 +70,11 @@
 							</div>
 							<div class="button_container">
                                 @guest
-								<button type="button" class="button cart_button" data-toggle="modal" data-target="#modalCinema"><i class="fas fa-play"></i> Book Now</button>
+                                	@if($film->status==1)
+										<button type="button" class="button cart_button" data-toggle="modal" data-target="#modalCinema"><i class="fas fa-play"></i> Book Now</button>
+									@else
+										<button type="button" disabled class="button cart_button" ><i class="fas fa-clock"></i> Coming Soon</button>
+									@endif
                                 @else
 								@if(Auth::user()->role==2)
 								<div class="alert alert-warning" role="alert">
@@ -108,7 +112,11 @@
 						      		</form>
 								</div>
 								@else
-								<button type="button" class="button cart_button" data-toggle="modal" data-target="#modalCinema"><i class="fas fa-play"></i> Book Now</button>
+                                	@if($film->status==1)
+										<button type="button" class="button cart_button" data-toggle="modal" data-target="#modalCinema"><i class="fas fa-play"></i> Book Now</button>
+									@else
+										<button type="button" disabled class="button cart_button" ><i class="fas fa-clock"></i> Coming Soon</button>
+									@endif
 								@endif
 								@endguest
 							</div>

@@ -100,8 +100,11 @@
 								<div class="product_price">
 									Rp {{number_format($event->price,2,',','.')}}</div>
 								<div class="button_container">
-									<button type="button" class="button cart_button">Order Now</button>
-
+									@if($event->date2 >= date('Y-m-d', time()) and $event->owner!=Auth::user()->id)
+									<button id="cart-buy" type="button" class="button cart_button">Order Now</button>
+									@elseif($event->date2 < date('Y-m-d', time()))
+									<button type="button" disabled class="button cart_button">Closed</button>
+									@endif
 								</div>
 
 							</form>
@@ -127,7 +130,7 @@
 				}
 		});
 
-		$(".cart_button").click(function(){
+		$("#cart-buy").click(function(){
 			if (!$("#is_logged_in").val()) {
 		        swal("Please Login first!",{
 					closeOnClickOutside: false,
@@ -145,7 +148,7 @@
 				data: {quantity, event_id},
 				method: "POST",
 				success: function(){
-		              	swal("Successfully ordered ticket/s",{
+		              	swal("Successfully ordered ticket/s\nPlease confirm payment on BNI 033444175521",{
 							closeOnClickOutside: false,
 		           		}).then(function() {
 						window.location = '{{url("user/ordered-tickets")}}';

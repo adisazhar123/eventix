@@ -15,7 +15,7 @@ class MainController extends Controller
 	public function index(){
 		// find events with ending date further than today
 		$date_now = date('Y-m-d', time());
-		$films = Film::take(5)->get();
+		$films = Film::take(5)->where('status',1)->get();
 		$events = Event::where('approved', 1)->where('deleted', 0)->whereDate('date2', '>=', $date_now)->where('sport_type', '=', null)->take(10)->get();
 		$sports = Event::where('approved', 1)->where('deleted', 0)->whereDate('date2', '>=', $date_now)->where('sport_type', '!=', null)->take(10)->get();
     return view('welcome', compact('films','sports', 'events'));
@@ -54,8 +54,17 @@ class MainController extends Controller
 		->where('type', $request->categories)
       	->where(function($q) use ($request) {
 			$q->whereBetween('date1', [date($request->start_date).' 00:00:00', date($request->end_date).' 00:00:00'])
-			->orwhereBetween('date2', [date($request->start_date).' 00:00:00', date($request->end_date).' 00:00:00']);
-      	})->paginate(10);
+			->orwhereBetween('date2', [date($request->start_date).' 00:00:00', date($request->end_date).' 00:00:00'])
+			->orwhere(function($r) use ($request) {
+				$r->whereDate('date1', '<=', date($request->start_date).' 00:00:00')
+				->whereDate('date2', '>=', date($request->start_date).' 00:00:00');
+			})
+			->orwhere(function($s) use ($request) {
+				$s->whereDate('date1', '<=', date($request->end_date).' 00:00:00')
+				->whereDate('date2', '>=', date($request->end_date).' 00:00:00');
+			});
+      	})
+      	->paginate(10);
 		return view('events', ['events' => $events]);		
 	}
 
