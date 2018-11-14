@@ -12,7 +12,7 @@ use App\User;
 class MainController extends Controller
 {
 	public function index(){
-		$films = Film::take(5)->get();
+		$films = Film::take(5)->where('status', 1)->get();
 		$events = Event::where('approved', 1)->where('sport_type', '=', null)->take(10)->get();
 		$sports = Event::where('approved', 1)->where('sport_type', '!=', null)->take(10)->get();
         return view('welcome', compact('films','sports', 'events'));
@@ -48,8 +48,9 @@ class MainController extends Controller
 	}
 
 	public function moviePage(){
-		$films = Film::orderBy('name')->paginate(10);
-        return view('movies', compact('films'));
+		$films = Film::orderBy('name')->where('status', 1)->paginate(10);
+		$filmsc = Film::where('status', 2)->get();
+        return view('movies', compact('films','filmsc'));
 	}
 
 	public function moviePageSingle($id){

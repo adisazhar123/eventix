@@ -29,7 +29,13 @@
 
 @section('content')
 
-
+	<div class="container">
+	          @if (session('success'))
+	              <div class="alert alert-success">
+	                  {{ session('success') }}
+	              </div>
+	          @endif		
+	</div>
 	<div class="single_product">
 		<div class="container">
 			<div class="row">
@@ -63,7 +69,46 @@
 							<div class="clearfix" style="z-index: 1000;">
 							</div>
 							<div class="button_container">
+                                @guest
 								<button type="button" class="button cart_button" data-toggle="modal" data-target="#modalCinema"><i class="fas fa-play"></i> Book Now</button>
+                                @else
+								@if(Auth::user()->role==2)
+								<div class="alert alert-warning" role="alert">
+						          	<form action="{{url('/xxi/change-status')}}" method="POST">
+							            {{ csrf_field() }}
+							            <div class="form-group" align="center">
+							            	<input type="hidden" name="film_id" value="{{$film->id}}">
+							              	<label>Film Status</label>
+							              	<select class="form-control" required name="film_status">
+							              		@if($film->status==1)
+							                  	<option value="1" selected>Now Playing</option>
+							                  	<option value="2">Coming Soon</option>
+							              		@else
+							                  	<option value="1">Now Playing</option>
+							                  	<option value="2" selected>Coming Soon</option>
+							              		@endif
+							              	</select>
+						            	</div>
+										<div class="form-group" align="center">
+						            		<button type="submit" class="btn btn-sm btn-primary">Save</button>
+						            	</div>
+						      		</form>
+								</div>
+								<div class="alert alert-danger" role="alert">
+						          	<form action="{{url('/xxi/delete')}}" method="POST">
+							            {{ csrf_field() }}
+							            <div class="form-group" align="center">
+							            	<input type="hidden" name="film_id" value="{{$film->id}}">
+							              	<label>Delete Film</label><br>
+							              	<small>Deleted film cant restore!</small>
+						            	</div>
+										<div class="form-group" align="center">
+						            		<button type="submit" class="btn btn-sm btn-primary">Delete</button>
+						            	</div>
+						      		</form>
+								</div>
+								@endif
+								@endguest
 							</div>
 						</div>
 					</div>

@@ -50,11 +50,14 @@ Route::group(['middleware' => ['admin_only']], function(){
 Route::group(['middleware' => ['xxi_only']], function(){
 	Route::prefix('xxi')->group(function(){
 		Route::get('/', 'CinemaController@index');
-  	Route::get('/new/film', 'CinemaController@newFilmPage');
+	  	Route::get('/new/film', 'CinemaController@newFilmPage');
 		Route::get('/cinema', 'CinemaController@listCinemas');
 		Route::get('/film', 'CinemaController@listFilms');
-  	Route::post('films', 'CinemaController@storeFilm');
-  	Route::post('schedules', 'CinemaController@storeSchedule');
+		Route::get('/film-coming', 'CinemaController@listFilmsComing');
+	  	Route::post('films', 'CinemaController@storeFilm');
+	  	Route::post('change-status', 'CinemaController@changeStatus');
+	  	Route::post('delete', 'CinemaController@deleteFilm');
+	  	Route::post('schedules', 'CinemaController@storeSchedule');
 	});
 });
 
