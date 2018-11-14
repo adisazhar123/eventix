@@ -110,6 +110,11 @@
 
 @media only screen and (max-width: 991px)
 {
+	.trends_slider_container
+	{
+		margin-top: 15px;
+	}
+
 	.top_bar
 	{
 		/*display: none;*/

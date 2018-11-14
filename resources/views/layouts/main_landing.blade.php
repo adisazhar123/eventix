@@ -57,11 +57,10 @@
                     <div class="container">
                         <div class="row">
 
-
                             <div class="col-lg-2 col-sm-3 col-3 order-1 mb-4">
                                 <div class="logo_container">
                                     <div class="logo"><a href="{{url('/')}}">
-                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="150px">
+                                      <img src="{{asset('images/logo-eventix.png')}}" alt="" width="130px" class="d-none d-sm-block">
                                     </a></div>
                                 </div>
                             </div>
@@ -215,8 +214,11 @@
                                             <select class="form-control select-category mb-2" name="categories">
                                               <option value="" disabled selected>Categories</option>
                                               <option value="Cinemas">Cinemas</option>
+                                              <option value="Concert">Concert</option>
                                               <option value="Events">Events</option>
+                                              <option value="Exhibition">Exhibition</option>
                                               <option value="Sports">Sports</option>
+                                              <option value="Workshop">Workshop</option>
                                             </select>
                                             <button type="button" class="other2" id="mobile-search-btn"><img src="{{asset('images/search.png')}}" alt=""></button>
                                         </form>

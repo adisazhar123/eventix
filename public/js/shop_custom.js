@@ -37,6 +37,7 @@ $(document).ready(function()
 	initViewedSlider();
 	initBrandsSlider();
 	initIsotope();
+	initTrendsSlider();
 	initPriceSlider();
 	initFavs();
 
@@ -219,9 +220,57 @@ $(document).ready(function()
 
 	/* 
 
+
+
 	5. Init Recently Viewed Slider
 
 	*/
+
+	function initTrendsSlider()
+	{
+		if($('.trends_slider').length)
+		{
+			var trendsSlider = $('.trends_slider');
+			trendsSlider.owlCarousel(
+			{
+				loop:false,
+				margin:30,
+				nav:false,
+				dots:false,
+				autoplayHoverPause:true,
+				autoplay:false,
+				responsive:
+				{
+					0:{items:1},
+					575:{items:2},
+					991:{items:3}
+				}
+			});
+
+			trendsSlider.on('click', '.trends_fav', function (ev)
+			{
+			    $(ev.target).toggleClass('active');
+			});
+
+			if($('.trends_prev').length)
+			{
+				var prev = $('.trends_prev');
+				prev.on('click', function()
+				{
+					trendsSlider.trigger('prev.owl.carousel');
+				});
+			}
+
+			if($('.trends_next').length)
+			{
+				var next = $('.trends_next');
+				next.on('click', function()
+				{
+					trendsSlider.trigger('next.owl.carousel');
+				});
+			}
+		}
+	}
 
 	function initViewedSlider()
 	{
@@ -231,7 +280,7 @@ $(document).ready(function()
 
 			viewedSlider.owlCarousel(
 			{
-				loop:true,
+				loop:false,
 				margin:30,
 				autoplay:true,
 				autoplayTimeout:6000,
