@@ -18,7 +18,8 @@ class MainController extends Controller
 		$films = Film::take(5)->where('status',1)->get();
 		$events = Event::where('approved', 1)->where('deleted', 0)->whereDate('date2', '>=', $date_now)->where('sport_type', '=', null)->take(10)->get();
 		$sports = Event::where('approved', 1)->where('deleted', 0)->whereDate('date2', '>=', $date_now)->where('sport_type', '!=', null)->take(10)->get();
-    return view('welcome', compact('films','sports', 'events'));
+		return $events;
+		return view('welcome', compact('films','sports', 'events'));
 	}
 
 
@@ -65,7 +66,7 @@ class MainController extends Controller
 			});
       	})
       	->paginate(10);
-		return view('events', ['events' => $events]);		
+		return view('events', ['events' => $events]);
 	}
 
 	public function eventPage(){
