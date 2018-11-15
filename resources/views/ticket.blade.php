@@ -100,7 +100,7 @@
 								<div class="product_price">
 									Rp {{number_format($event->price,2,',','.')}}</div>
 								<div class="button_container">
-									@if($event->owner==Auth::user()->id)
+									@if(Auth::user() && $event->owner==Auth::user()->id)
 									@elseif($event->date2 >= date('Y-m-d', time()) and $event->date1 <= date('Y-m-d', time()))
 									<button id="cart-buy" type="button" class="button cart_button">Order Now</button>
 									@elseif($event->date2 < date('Y-m-d', time()))
