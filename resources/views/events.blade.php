@@ -115,7 +115,8 @@
 									<div class="product_image d-flex flex-column align-items-center justify-content-center"><img width="128px" height="128px" src="{{asset('storage') ."/". $e->pictures[0]->location}}" alt=""></div>
 									<div class="product_content">
 										<div class="product_price">Rp {{number_format($e->price,2,',','.')}}</div>
-											<div class="product_name"><div><a href="#" tabindex="0">{{$e->name}}</a></div></div>
+											<div class="product_name"><div><a href="#" tabindex="0">
+												{{ substr($e->name, 0,26) . "..." }}</a></div></div>
 									</div>
 									<ul class="product_marks">
 										<li class="product_mark product_discount">-25%</li>
