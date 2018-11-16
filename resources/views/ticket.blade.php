@@ -4,6 +4,10 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('styles/product_styles.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('styles/product_responsive.css')}}">
 
+	<link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.css')}}">
+	
+
 	<style media="screen">
 		.manage-event .btn:hover{
 			cursor: pointer;
