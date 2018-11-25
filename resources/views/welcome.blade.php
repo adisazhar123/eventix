@@ -99,32 +99,61 @@
           <!-- Deals -->
           <div class="deals">
             <div class="deals_title">Deals of the Month</div>
-            <div class="deals_slider_container">
-              <!-- Deals Slider -->
-              <div class="owl-carousel owl-theme deals_slider">
-                <!-- Deals Item -->
-                <div class="owl-item deals_item">
-                  <div class="deals_image"><img src="{{asset('storage') ."/". $sports[0]->pictures[0]->location}}" alt=""></div>
-                  <div class="deals_content">
-                    <div class="deals_info_line d-flex flex-row justify-content-start">
-                      <div class="deals_item_category text-capitalize">{{$sports[0]->type}}</div>
+            @if ($sports->count())
+              <div class="deals_slider_container">
+                <!-- Deals Slider -->
+                <div class="owl-carousel owl-theme deals_slider">
+                  <!-- Deals Item -->
+                  <div class="owl-item deals_item">
+                    <div class="deals_image"><img src="{{asset('storage') ."/". $sports[0]->pictures[0]->location}}" alt=""></div>
+                    <div class="deals_content">
+                      <div class="deals_info_line d-flex flex-row justify-content-start">
+                        <div class="deals_item_category text-capitalize">{{$sports[0]->type}}</div>
 
-                    </div>
-                    <div class="deals_info_line d-flex flex-row justify-content-start">
-                      <div class="deals_item_name">{{$sports[0]->name}}</div>
-                      <div class="deals_item_price ml-auto">{{number_format($sports[0]->price,0,',','.')}}</div>
-                    </div>
-                    <div class="available">
-                      <div class="available_line d-flex flex-row justify-content-start">
-                        <div class="available_title">Quota: <span>{{$sports[0]->quota}}</span></div>
                       </div>
-                      <div class="available_bar"><span style="width:17%"></span></div>
+                      <div class="deals_info_line d-flex flex-row justify-content-start">
+                        <div class="deals_item_name">{{$sports[0]->name}}</div>
+                        <div class="deals_item_price ml-auto">{{number_format($sports[0]->price,0,',','.')}}</div>
+                      </div>
+                      <div class="available">
+                        <div class="available_line d-flex flex-row justify-content-start">
+                          <div class="available_title">Quota: <span>{{$sports[0]->quota}}</span></div>
+                        </div>
+                        <div class="available_bar"><span style="width:17%"></span></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-            </div>
+              </div>
+            @else
+              <div class="deals_slider_container">
+                <!-- Deals Slider -->
+                <div class="owl-carousel owl-theme deals_slider">
+                  <!-- Deals Item -->
+                  <div class="owl-item deals_item">
+                    <div class="deals_image"><img src="" alt=""></div>
+                    <div class="deals_content">
+                      <div class="deals_info_line d-flex flex-row justify-content-start">
+                        <div class="deals_item_category text-capitalize"></div>
+
+                      </div>
+                      <div class="deals_info_line d-flex flex-row justify-content-start">
+                        <div class="deals_item_name">No Sports - Contact admin to update</div>
+                        <div class="deals_item_price ml-auto"></div>
+                      </div>
+                      <div class="available">
+                        <div class="available_line d-flex flex-row justify-content-start">
+                          {{-- <div class="available_title">Quota: <span>{{$sports[0]->quota}}</span></div> --}}
+                        </div>
+                        <div class="available_bar"><span style="width:17%"></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            @endif
 
             <div class="deals_slider_nav_container">
               <div class="deals_slider_prev deals_slider_nav"><i class="fas fa-chevron-left ml-auto"></i></div>
