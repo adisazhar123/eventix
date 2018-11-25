@@ -145,26 +145,46 @@
               <!-- Product Panel -->
               <div class="product_panel panel active">
                 <div class="featured_slider slider">
-                  @foreach($sports as $s)
-                  <!-- Slider Item -->
-                  <div class="featured_slider_item">
-                    <div class="border_active"></div>
-                    <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                      <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('storage') ."/". $s->pictures[0]->location}}" alt=""></div>
-                      <div class="product_content">
-                        <div class="product_price">Rp. {{number_format($s->price,2,',','.')}}</div>
-                        <div class="product_name"><div>{{$s->name}}</div></div>
-                        <div class="product_extras">
-                          <a class="btn product_cart_button" role="button" style="color: white;" href="{{url('events') . "/" . $s->id}}">View</a>
+                  @if ($sports->count())
+                    @foreach($sports as $s)
+                    <!-- Slider Item -->
+                    <div class="featured_slider_item">
+                      <div class="border_active"></div>
+                      <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('storage') ."/". $s->pictures[0]->location}}" alt=""></div>
+                        <div class="product_content">
+                          <div class="product_price">Rp. {{number_format($s->price,2,',','.')}}</div>
+                          <div class="product_name"><div>{{$s->name}}</div></div>
+                          <div class="product_extras">
+                            <a class="btn product_cart_button" role="button" style="color: white;" href="{{url('events') . "/" . $s->id}}">View</a>
+                          </div>
                         </div>
+                        <div class="product_fav"><i class="fas fa-heart"></i></div>
+                        <ul class="product_marks">
+                          <li class="product_mark product_discount"><i style="" class="fas fa-fire"></i></li>
+                        </ul>
                       </div>
-                      <div class="product_fav"><i class="fas fa-heart"></i></div>
-                      <ul class="product_marks">
-                        <li class="product_mark product_discount"><i style="" class="fas fa-fire"></i></li>
-                      </ul>
                     </div>
-                  </div>
-                  @endforeach
+                    @endforeach
+                  @else
+                    <div class="featured_slider_item">
+                      <div class="border_active"></div>
+                      <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="#" alt=""></div>
+                        <div class="product_content">
+                          <div class="product_price">#</div>
+                          <div class="product_name"><div>No Sport Events</div></div>
+                          <div class="product_extras">
+                            {{-- <a class="btn product_cart_button" role="button" style="color: white;" href="{{url('events') . "/" . $s->id}}">View</a> --}}
+                          </div>
+                        </div>
+                        <div class="product_fav"><i class="fas fa-heart"></i></div>
+                        <ul class="product_marks">
+                          <li class="product_mark product_discount"><i style="" class="fas fa-fire"></i></li>
+                        </ul>
+                      </div>
+                    </div>
+                  @endif
                 </div>
                 <div class="featured_slider_dots_cover"></div>
               </div>
@@ -236,29 +256,52 @@
                 <!-- Product Panel -->
                 <div class="product_panel panel active">
                   <div class="arrivals_slider slider">
-                  @foreach($events as $e)
-                    <!-- Slider Item -->
-                    <div class="arrivals_slider_item">
-                      <div class="border_active"></div>
-                      <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                          <img src="{{asset('storage') ."/". $e->pictures[0]->location}}" alt="">
-                        </div>
-                        <div class="product_content">
-                          <div class="product_price">Rp. {{number_format($e->price,2,',','.')}}</div>
-                          <div class="product_name"><div>{{$e->name}}</div></div>
-                          <div class="product_extras">
-                            <a class="btn product_cart_button" role="button" style="color: white;" href="{{url('events') . "/" . $e->id}}">View</a>
+                    @if ($events->count())
+                      @foreach($events as $e)
+                        <!-- Slider Item -->
+                        <div class="arrivals_slider_item">
+                          <div class="border_active"></div>
+                          <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                              <img src="{{asset('storage') ."/". $e->pictures[0]->location}}" alt="">
+                            </div>
+                            <div class="product_content">
+                              <div class="product_price">Rp. {{number_format($e->price,2,',','.')}}</div>
+                              <div class="product_name"><div>{{$e->name}}</div></div>
+                              <div class="product_extras">
+                                <a class="btn product_cart_button" role="button" style="color: white;" href="{{url('events') . "/" . $e->id}}">View</a>
+                              </div>
+                            </div>
+                            <div class="product_fav"><i class="fas fa-heart"></i></div>
+                            <ul class="product_marks">
+                              <li class="product_mark product_discount"></li>
+                              <li class="product_mark product_new">new</li>
+                            </ul>
                           </div>
                         </div>
-                        <div class="product_fav"><i class="fas fa-heart"></i></div>
-                        <ul class="product_marks">
-                          <li class="product_mark product_discount"></li>
-                          <li class="product_mark product_new">new</li>
-                        </ul>
+                      @endforeach
+                    @else
+                      <div class="arrivals_slider_item">
+                        <div class="border_active"></div>
+                        <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+                          <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                            <img src="#" alt="">
+                          </div>
+                          <div class="product_content">
+                            <div class="product_price">#</div>
+                            <div class="product_name"><div>No Events</div></div>
+                            <div class="product_extras">
+                              {{-- <a class="btn product_cart_button" role="button" style="color: white;" href="#"></a> --}}
+                            </div>
+                          </div>
+                          <div class="product_fav"><i class="fas fa-heart"></i></div>
+                          <ul class="product_marks">
+                            <li class="product_mark product_discount"></li>
+                            <li class="product_mark product_new">new</li>
+                          </ul>
+                        </div>
                       </div>
-                    </div>
-                  @endforeach
+                    @endif
                   </div>
                   <div class="arrivals_slider_dots_cover"></div>
                 </div>
@@ -318,28 +361,48 @@
 
 
             <div class="owl-carousel owl-theme trends_slider">
-              @foreach($films as $film)
-              @php
-                $file=explode("/",$film->picture->location);
-              @endphp
-              <div class="owl-item">
-                <div class="trends_item is_new">
-                  <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('storage/'.$file[1].'/'.$file[2]) }}" alt="" style="object-fit: cover;"></div>
-                  <div class="trends_content">
-                    <div class="trends_category"><a href="" style="cursor: default;" class="text-capitalize">By :&nbsp;{{$film->director}}</a></div>
-                    <div class="trends_info clearfix">
+              @if ($films->count())
+                @foreach($films as $film)
+                @php
+                  $file=explode("/",$film->picture->location);
+                @endphp
+                <div class="owl-item">
+                  <div class="trends_item is_new">
+                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('storage/'.$file[1].'/'.$file[2]) }}" alt="" style="object-fit: cover;"></div>
+                    <div class="trends_content">
+                      <div class="trends_category"><a href="" style="cursor: default;" class="text-capitalize">By :&nbsp;{{$film->director}}</a></div>
+                      <div class="trends_info clearfix">
 
-                      <div class="trends_price"><a href="{{url('movies')}}"><i class="fab fa-youtube"></i> Get ticket</a></div>
+                        <div class="trends_price"><a href="{{url('movies')}}"><i class="fab fa-youtube"></i> Get ticket</a></div>
+                      </div>
                     </div>
+                    <ul class="trends_marks">
+                      <li class="trends_mark trends_discount">-25%</li>
+                      <li class="trends_mark trends_new">new</li>
+                    </ul>
+                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
                   </div>
-                  <ul class="trends_marks">
-                    <li class="trends_mark trends_discount">-25%</li>
-                    <li class="trends_mark trends_new">new</li>
-                  </ul>
-                  <div class="trends_fav"><i class="fas fa-heart"></i></div>
                 </div>
-              </div>
-              @endforeach
+                @endforeach
+              @else
+                <div class="owl-item">
+                  <div class="trends_item is_new">
+                    <div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="#" alt="" style="object-fit: cover;"></div>
+                    <div class="trends_content">
+                      <div class="trends_category"><a href="" style="cursor: default;" class="text-capitalize">No Movies</a></div>
+                      <div class="trends_info clearfix">
+
+                        <div class="trends_price"><a href="{{url('movies')}}"><i class="fab fa-youtube"></i> Contact Admin to update movies</a></div>
+                      </div>
+                    </div>
+                    <ul class="trends_marks">
+                      <li class="trends_mark trends_discount"></li>
+                      <li class="trends_mark trends_new"></li>
+                    </ul>
+                    <div class="trends_fav"><i class="fas fa-heart"></i></div>
+                  </div>
+                </div>
+              @endif
             </div>
           </div>
         </div>
